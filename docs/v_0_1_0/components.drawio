@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="Page-1" id="V2_uuKdX49vbQtdz6IMa">
-        <mxGraphModel dx="1706" dy="777" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="3300" dy="1127" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -25,92 +25,118 @@
                 <mxCell id="9" value="" style="endArrow=none;html=1;labelBackgroundColor=none;strokeColor=#808080;fontSize=20;fontColor=#B3B3B3;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="80" y="80" as="sourcePoint"/>
-                        <mxPoint x="80" y="760" as="targetPoint"/>
+                        <mxPoint x="80" y="1120" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="10" value="" style="endArrow=none;html=1;labelBackgroundColor=none;strokeColor=#808080;fontSize=20;fontColor=#B3B3B3;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="359.66" y="79.99999999999989" as="sourcePoint"/>
-                        <mxPoint x="360" y="760" as="targetPoint"/>
+                        <mxPoint x="360" y="1120" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="11" value="" style="endArrow=none;html=1;labelBackgroundColor=none;strokeColor=#808080;fontSize=20;fontColor=#B3B3B3;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="639.66" y="79.99999999999989" as="sourcePoint"/>
-                        <mxPoint x="640" y="760" as="targetPoint"/>
+                        <mxPoint x="640" y="1120" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="13" value="" style="endArrow=classic;html=1;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="80" y="160" as="sourcePoint"/>
-                        <mxPoint x="360" y="160" as="targetPoint"/>
+                        <mxPoint x="80" y="440" as="sourcePoint"/>
+                        <mxPoint x="360" y="440" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="15" value="Отправка данных пользователя" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
-                    <mxGeometry x="160" y="120" width="120" height="40" as="geometry"/>
+                    <mxGeometry x="160" y="400" width="120" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="16" value="" style="endArrow=classic;html=1;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="360" y="239.9999999999999" as="sourcePoint"/>
-                        <mxPoint x="640" y="239.9999999999999" as="targetPoint"/>
+                        <mxPoint x="360" y="519.9999999999999" as="sourcePoint"/>
+                        <mxPoint x="640" y="519.9999999999999" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="17" value="Запрос на существование пользователя с таким логином" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
-                    <mxGeometry x="400" y="200" width="190" height="40" as="geometry"/>
+                    <mxGeometry x="400" y="480" width="190" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="21" value="" style="endArrow=classic;html=1;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="640" y="320" as="sourcePoint"/>
-                        <mxPoint x="360" y="320" as="targetPoint"/>
+                        <mxPoint x="640" y="600" as="sourcePoint"/>
+                        <mxPoint x="360" y="600" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="23" value="Подтверждение отсутствия пользователя с таким логином" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
-                    <mxGeometry x="400" y="280" width="190" height="40" as="geometry"/>
+                    <mxGeometry x="400" y="560" width="190" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="24" value="" style="endArrow=classic;html=1;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="360" y="399.9999999999999" as="sourcePoint"/>
-                        <mxPoint x="640" y="399.9999999999999" as="targetPoint"/>
+                        <mxPoint x="360" y="679.9999999999999" as="sourcePoint"/>
+                        <mxPoint x="640" y="679.9999999999999" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="25" value="Создание новой учётной записи" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
-                    <mxGeometry x="400" y="370" width="190" height="30" as="geometry"/>
+                    <mxGeometry x="400" y="650" width="190" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="26" value="" style="endArrow=classic;html=1;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="640" y="480" as="sourcePoint"/>
-                        <mxPoint x="360" y="480" as="targetPoint"/>
+                        <mxPoint x="640" y="760" as="sourcePoint"/>
+                        <mxPoint x="360" y="760" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="27" value="Подтверждение создание учётной записи" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
-                    <mxGeometry x="400" y="440" width="190" height="40" as="geometry"/>
+                    <mxGeometry x="400" y="720" width="190" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="28" value="" style="endArrow=classic;html=1;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="360" y="720" as="sourcePoint"/>
-                        <mxPoint x="80" y="720" as="targetPoint"/>
+                        <mxPoint x="360" y="1000" as="sourcePoint"/>
+                        <mxPoint x="80" y="1000" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="30" value="" style="endArrow=classic;html=1;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="360" y="559.9999999999999" as="sourcePoint"/>
-                        <mxPoint x="640" y="559.9999999999999" as="targetPoint"/>
+                        <mxPoint x="360" y="839.9999999999999" as="sourcePoint"/>
+                        <mxPoint x="640" y="839.9999999999999" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="31" value="Запрос на существование пользователя с таким логином" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
-                    <mxGeometry x="400" y="520" width="190" height="40" as="geometry"/>
+                    <mxGeometry x="400" y="800" width="190" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="32" value="" style="endArrow=classic;html=1;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;" edge="1" parent="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="640" y="640" as="sourcePoint"/>
-                        <mxPoint x="360" y="640" as="targetPoint"/>
+                        <mxPoint x="640" y="920" as="sourcePoint"/>
+                        <mxPoint x="360" y="920" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="33" value="Подтверждение существование пользователя с таким логином" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
-                    <mxGeometry x="400" y="600" width="190" height="40" as="geometry"/>
+                    <mxGeometry x="400" y="880" width="190" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="34" value="Подтверждение создания учётной записи" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
-                    <mxGeometry x="125" y="680" width="190" height="40" as="geometry"/>
+                    <mxGeometry x="125" y="960" width="190" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="Отображение домашней страницы" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#009900;" vertex="1" parent="1">
+                    <mxGeometry x="-130" y="1060" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;" edge="1" parent="1" source="37" target="39">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="Отображение страницы авторизиции" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#009900;" vertex="1" parent="1">
+                    <mxGeometry x="-160" y="120" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="39" target="35">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-60" y="390" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="39" value="Отображение страницы регистрации" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#009900;" vertex="1" parent="1">
+                    <mxGeometry x="-160" y="280" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="Нажатие на кнопку регистрации" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
+                    <mxGeometry x="-285" y="220" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="Ввод данных пользователя" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
+                    <mxGeometry x="-260" y="370" width="180" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="Нажатие на кнопку &quot;Зарегистрироваться&quot;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
+                    <mxGeometry x="-340" y="400" width="260" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
