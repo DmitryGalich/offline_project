@@ -1,173 +1,149 @@
 <mxfile host="65bd71144e">
     <diagram name="Page-1" id="V2_uuKdX49vbQtdz6IMa">
-        <mxGraphModel dx="2326" dy="683" grid="1" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2473" dy="1127" grid="1" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="13" value="" style="endArrow=classic;html=1;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="54" target="60">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="440" y="830" as="sourcePoint"/>
-                        <mxPoint x="720" y="830" as="targetPoint"/>
-                        <Array as="points">
-                            <mxPoint x="340" y="920"/>
-                            <mxPoint x="830" y="930"/>
-                            <mxPoint x="1200" y="940"/>
-                        </Array>
-                    </mxGeometry>
+                <mxCell id="15" value="Данные пользователя" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="1020" width="120" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="15" value="Данные пользователя" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
-                    <mxGeometry x="620" y="870" width="120" height="40" as="geometry"/>
+                <mxCell id="17" value="Логин пользователя" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="1210" width="140" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" value="" style="endArrow=classic;html=1;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="66" target="47">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="1300" y="1300" as="sourcePoint"/>
-                        <mxPoint x="1230" y="1530" as="targetPoint"/>
-                        <Array as="points">
-                            <mxPoint x="1200" y="1440"/>
-                            <mxPoint x="2060" y="1470"/>
-                        </Array>
-                    </mxGeometry>
+                <mxCell id="23" value="Такого пользователя нет" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="1520" width="190" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="Логин пользователя" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
-                    <mxGeometry x="1300" y="1400" width="190" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="21" value="" style="endArrow=classic;html=1;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="47" target="64">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="1655" y="1660" as="sourcePoint"/>
-                        <mxPoint x="1280" y="1590" as="targetPoint"/>
-                        <Array as="points">
-                            <mxPoint x="2020" y="1650"/>
-                            <mxPoint x="1200" y="1650"/>
-                        </Array>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="23" value="Такого пользователя нет" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
-                    <mxGeometry x="1770" y="1610" width="190" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="24" value="" style="endArrow=classic;html=1;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;" edge="1" parent="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="3000" y="1250" as="sourcePoint"/>
-                        <mxPoint x="3280" y="1250" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="25" value="Запрос на создание новой учётной записи" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
-                    <mxGeometry x="3005" y="1220" width="260" height="30" as="geometry"/>
-                </mxCell>
-                <mxCell id="26" value="" style="endArrow=classic;html=1;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;" edge="1" parent="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="3280" y="1330" as="sourcePoint"/>
-                        <mxPoint x="3000" y="1330" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="27" value="Подтверждение создание учётной записи" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
-                    <mxGeometry x="3040" y="1290" width="190" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="28" value="" style="endArrow=classic;html=1;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;" edge="1" parent="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="2880" y="1810" as="sourcePoint"/>
-                        <mxPoint x="2600" y="1810" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="30" value="" style="endArrow=classic;html=1;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;" edge="1" parent="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="3000" y="1410" as="sourcePoint"/>
-                        <mxPoint x="3280" y="1410" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="31" value="Запрос на существование пользователя с таким логином" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
-                    <mxGeometry x="3040" y="1370" width="190" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="32" value="" style="endArrow=classic;html=1;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;" edge="1" parent="1">
-                    <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="3280" y="1490" as="sourcePoint"/>
-                        <mxPoint x="3000" y="1490" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="33" value="Подтверждение существование пользователя с таким логином" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
-                    <mxGeometry x="3040" y="1450" width="190" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="34" value="Подтверждение создания учётной записи" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
-                    <mxGeometry x="2645" y="1770" width="190" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="40" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;" edge="1" parent="1" source="37" target="39">
+                <mxCell id="40" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;" parent="1" source="37" target="39" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="37" value="Отображение страницы авторизиции" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#B266FF;" vertex="1" parent="1">
+                <mxCell id="37" value="Отображение страницы авторизиции" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#B266FF;" parent="1" vertex="1">
                     <mxGeometry x="240" y="160" width="200" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="39" value="Нажатие на кнопку перехода на страницу регистрации" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#B266FF;" vertex="1" parent="1">
+                <mxCell id="39" value="Нажатие на кнопку перехода на страницу регистрации" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#B266FF;" parent="1" vertex="1">
                     <mxGeometry x="240" y="320" width="200" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="47" value="Проверка существования пользователя" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#004C99;" vertex="1" parent="1">
-                    <mxGeometry x="1990" y="1540" width="140" height="60" as="geometry"/>
+                <mxCell id="77" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="47" target="100">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="200" y="1620" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="48" value="Создание учётной записи" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#004C99;" vertex="1" parent="1">
-                    <mxGeometry x="1990" y="1860" width="140" height="60" as="geometry"/>
+                <mxCell id="78" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="47" target="64">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="480" y="1620" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="49" value="Создание учётной записи" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#004C99;" vertex="1" parent="1">
-                    <mxGeometry x="3340" y="1390" width="140" height="60" as="geometry"/>
+                <mxCell id="47" value="Проверка существования пользователя" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#004C99;" parent="1" vertex="1">
+                    <mxGeometry x="270" y="1430" width="140" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="52" value="Ввод данных пользователя" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#B266FF;" vertex="1" parent="1">
+                <mxCell id="92" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="48" target="104">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="370" y="1870" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="93" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="48" target="98">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="590" y="1870" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="48" value="Создание учётной записи" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#004C99;" parent="1" vertex="1">
+                    <mxGeometry x="390" y="1750" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="Ввод данных пользователя" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#B266FF;" parent="1" vertex="1">
                     <mxGeometry x="240" y="640" width="200" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="53" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" target="54" source="52">
+                <mxCell id="53" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="52" target="54" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="340" y="730" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="62" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="54" target="63">
+                <mxCell id="84" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="54" target="85">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="340.43478260869597" y="990.0000000000002" as="targetPoint"/>
-                        <Array as="points">
-                            <mxPoint x="310" y="900"/>
-                            <mxPoint x="90" y="900"/>
-                        </Array>
+                        <mxPoint x="340" y="890" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="54" value="Нажатие на кнопку &quot;Зарегистрироваться&quot;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#B266FF;" vertex="1" parent="1">
-                    <mxGeometry x="240" y="800" width="200" height="60" as="geometry"/>
+                <mxCell id="54" value="Нажатие на кнопку &quot;Зарегистрироваться&quot;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#B266FF;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="770" width="200" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="56" value="Отображение страницы регистрации" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#B266FF;" vertex="1" parent="1">
+                <mxCell id="56" value="Отображение страницы регистрации" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#B266FF;" parent="1" vertex="1">
                     <mxGeometry x="240" y="480" width="200" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="57" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;" edge="1" parent="1" source="39">
+                <mxCell id="57" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;" parent="1" source="39" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="340" y="410" as="sourcePoint"/>
                         <mxPoint x="340" y="480" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="58" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="56" target="52">
+                <mxCell id="58" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="56" target="52" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="340" y="570" as="sourcePoint"/>
                         <mxPoint x="340" y="620" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="67" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;" edge="1" parent="1" source="60" target="66">
+                <mxCell id="74" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="60" target="66">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="60" value="Сохранение в локальную память данных пользователя" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#999900;" vertex="1" parent="1">
-                    <mxGeometry x="1100" y="1000" width="200" height="60" as="geometry"/>
+                <mxCell id="60" value="Сохранение в локальную память данных пользователя" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#FF6666;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="1130" width="200" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="63" value="&amp;nbsp;Отображение индикатора загрузки" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#B266FF;" vertex="1" parent="1">
-                    <mxGeometry x="-10" y="930" width="200" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="68" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;strokeColor=#808080;fontSize=12;fontColor=#B3B3B3;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="64" target="48">
+                <mxCell id="81" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="64" target="48">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="64" value="Запрос на создание учётной записи" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#999900;" vertex="1" parent="1">
-                    <mxGeometry x="1100" y="1730" width="200" height="60" as="geometry"/>
+                <mxCell id="64" value="Запрос на создание учётной записи" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#FF6666;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="1620" width="200" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="66" value="Запрос существование пользователя с таким логином" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#999900;" vertex="1" parent="1">
-                    <mxGeometry x="1100" y="1260" width="200" height="60" as="geometry"/>
+                <mxCell id="75" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="66" target="47">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="69" value="Frontend" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#B266FF;" vertex="1" parent="1">
-                    <mxGeometry x="200" y="10" width="200" height="60" as="geometry"/>
+                <mxCell id="66" value="Запрос существование пользователя с таким логином" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#FF6666;" parent="1" vertex="1">
+                    <mxGeometry x="240" y="1280" width="200" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="70" value="Backend" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#FF6666;" vertex="1" parent="1">
-                    <mxGeometry x="410" y="10" width="200" height="60" as="geometry"/>
+                <mxCell id="69" value="Frontend" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#B266FF;" parent="1" vertex="1">
+                    <mxGeometry x="90" y="10" width="200" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="71" value="DB" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#004C99;" vertex="1" parent="1">
-                    <mxGeometry x="620" y="10" width="200" height="60" as="geometry"/>
+                <mxCell id="70" value="Backend" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#FF6666;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="10" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" value="DB" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#004C99;" parent="1" vertex="1">
+                    <mxGeometry x="510" y="10" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="79" value="Такой пользователь есть" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="1530" width="190" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="87" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="85" target="60">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="85" value="Отображение виджета загрузки.&lt;br&gt;Отправка данных пользователя" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#B266FF;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="920" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="88" value="Данные пользователя" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="1690" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="96" value="&amp;nbsp;Учётная запись успешно создана" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
+                    <mxGeometry x="580" y="1810" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="97" value="Ошибка при создании учётной записи" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=12;fontColor=#B3B3B3;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="1810" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="98" value="Запрос существование пользователя с таким логином" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#FF6666;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="1880" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="99" value="Такой пользователь уже есть" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#B266FF;" vertex="1" parent="1">
+                    <mxGeometry x="90" y="1740" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="101" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="100" target="99">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="100" value="Передача ошибки на интерфейс" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#FF6666;" vertex="1" parent="1">
+                    <mxGeometry x="90" y="1620" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="102" value="Ошибка при создании пользователя" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#B266FF;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="2000" width="200" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="103" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="104" target="102">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="104" value="Передача ошибки на интерфейс" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=12;fillColor=none;strokeColor=#FF6666;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="1880" width="200" height="50" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
