@@ -8,3 +8,6 @@ oauth2 for rust
 
 docker vscode
 <https://www.youtube.com/watch?v=mi8kpAgHYFo&t=38s>
+
+flutter and go authorization
+<https://www.youtube.com/watch?v=q7WvkKio7ek>
