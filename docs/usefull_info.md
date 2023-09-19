@@ -4,7 +4,9 @@
 
 ## Docker
 
-* docker and docker-compose <https://www.youtube.com/watch?v=Q0OwEKtncPc>
+* docker and docker-compose
+  * <https://www.youtube.com/watch?v=Q0OwEKtncPc>
+  * <https://www.youtube.com/watch?v=ZB8JBWriDVo>
 * open in vscode <https://www.youtube.com/watch?v=mi8kpAgHYFo&t=38s>
 * attach to running container <https://www.youtube.com/watch?v=8gUtN5j4QnY>
 

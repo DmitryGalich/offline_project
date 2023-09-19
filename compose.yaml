@@ -1,0 +1,9 @@
+version: '3'
+
+networks:
+  general_network:
+    name: general_network
+
+services:
+  backend:
+    build: backend
