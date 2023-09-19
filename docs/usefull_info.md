@@ -1,18 +1,23 @@
-postgresql
-<https://www.youtube.com/watch?v=i5-1HNf3W_Y&list=LL&index=15&t=2454s>
+## Design
 
-projecting system
-<https://www.youtube.com/watch?v=mr3pywHOz7I&t=2780s>
+* <https://www.youtube.com/watch?v=mr3pywHOz7I&t=2780s>
 
-oauth2 for rust
-<https://docs.rs/oauth2/latest/oauth2/>
-<<https://www.youtube.com/watch?v=S8Usi3zsLIs>
+## Docker
 
-docker vscode
-<https://www.youtube.com/watch?v=mi8kpAgHYFo&t=38s>
+* docker and docker-compose <https://www.youtube.com/watch?v=Q0OwEKtncPc>
+* open in vscode <https://www.youtube.com/watch?v=mi8kpAgHYFo&t=38s>
+* attach to running container <https://www.youtube.com/watch?v=8gUtN5j4QnY>
 
-flutter and go authorization
-<https://www.youtube.com/watch?v=q7WvkKio7ek>
+## PostgreSQL
 
-docker and docker-compose
-<https://www.youtube.com/watch?v=Q0OwEKtncPc>
+* basics <https://www.youtube.com/watch?v=i5-1HNf3W_Y&list=LL&index=15&t=2454s>
+
+## Authorization
+
+* flutter and go authorization <https://www.youtube.com/watch?v=q7WvkKio7ek>
+
+## Rust
+
+* oauth2 for rust
+  * <https://docs.rs/oauth2/latest/oauth2/>
+  * <https://www.youtube.com/watch?v=S8Usi3zsLIs>
