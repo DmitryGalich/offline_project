@@ -18,6 +18,10 @@
 
 * flutter and go authorization <https://www.youtube.com/watch?v=q7WvkKio7ek>
 
+# GO
+
+* Project structure <https://github.com/golang-standards/project-layout/blob/master/README_ru.md>
+
 ## Rust
 
 * oauth2 for rust
