@@ -21,6 +21,7 @@
 # GO
 
 * Project structure <https://github.com/golang-standards/project-layout/blob/master/README_ru.md>
+* Awesome Go <https://github.com/avelino/awesome-go>
 
 ## Rust
 
