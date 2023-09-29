@@ -14,6 +14,12 @@
 
 * basics <https://www.youtube.com/watch?v=i5-1HNf3W_Y&list=LL&index=15&t=2454s>
 
+## Flutter
+
+* Docker
+  * <https://blog.codemagic.io/how-to-dockerize-flutter-apps/>
+  * <https://github.com/sbis04/flutter_docker>
+
 ## Authorization
 
 * flutter and go authorization <https://www.youtube.com/watch?v=q7WvkKio7ek>
