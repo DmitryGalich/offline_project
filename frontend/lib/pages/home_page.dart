@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-class LoginPage extends StatelessWidget {
-  static const String id = "login_page";
+class HomePage extends StatelessWidget {
+  static const String id = "home_page";
 
   @override
   Widget build(BuildContext context) {

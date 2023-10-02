@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:offline_project/app_widget.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:offline_project/main_widget.dart';
 
 void main() {
-  runApp(AppWidget());
+  return runApp(const App());
 }
