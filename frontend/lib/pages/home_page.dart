@@ -7,11 +7,26 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        middle: Text('Home'),
+    return CupertinoTabScaffold(
+      tabBar: CupertinoTabBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.home),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.person_alt_circle_fill),
+          ),
+        ],
       ),
-      child: SizedBox(),
+      tabBuilder: (BuildContext context, int index) {
+        return CupertinoTabView(
+          builder: (BuildContext context) {
+            return Center(
+              child: Text('Content of tab $index'),
+            );
+          },
+        );
+      },
     );
   }
 }
