@@ -15,7 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController _passwordController = TextEditingController();
 
   void onLoginButtonPressed() {
-    Navigator.pushNamed(context, PagesMainWidget.id);
+    Navigator.popAndPushNamed(context, PagesMainWidget.id);
   }
 
   void onCreateAccountButtonPressed() {}
