@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 
-class HomePage extends StatefulWidget {
+class ProfilePage extends StatefulWidget {
   static const String id = "home_page";
-  const HomePage({Key? key}) : super(key: key);
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<ProfilePage> createState() => _ProfilePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
                   fontWeight: FontWeight.bold,
                 ),
                 child: const Center(
-                  child: Text('home_page'),
+                  child: Text('profile_page'),
                 ),
               ),
             ],

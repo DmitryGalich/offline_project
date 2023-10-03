@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import 'package:offline_project/pages/home_page.dart';
+import 'package:offline_project/pages/pages_main_widget.dart';
 import 'package:offline_project/pages/login_page.dart';
 
 class App extends StatefulWidget {
@@ -17,7 +17,7 @@ class _AppState extends State<App> {
       LoginPage.id: (context) => const LoginPage(
             key: null,
           ),
-      HomePage.id: (context) => const HomePage(
+      PagesMainWidget.id: (context) => const PagesMainWidget(
             key: null,
           ),
     });

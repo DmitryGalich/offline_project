@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import 'dart:developer' as developer;
-
-import 'package:offline_project/pages/home_page.dart';
+import 'package:offline_project/pages/pages_main_widget.dart';
 
 class LoginPage extends StatefulWidget {
   static const String id = "login_page";
@@ -17,7 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController _passwordController = TextEditingController();
 
   void onLoginButtonPressed() {
-    Navigator.pushNamed(context, HomePage.id);
+    Navigator.pushNamed(context, PagesMainWidget.id);
   }
 
   void onCreateAccountButtonPressed() {}
