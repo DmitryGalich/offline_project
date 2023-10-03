@@ -13,9 +13,13 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(routes: {
-      HomePage.id: (context) => HomePage(),
-      LoginPage.id: (context) => LoginPage(),
+    return CupertinoApp(home: const LoginPage(), routes: {
+      LoginPage.id: (context) => const LoginPage(
+            key: null,
+          ),
+      HomePage.id: (context) => const HomePage(
+            key: null,
+          ),
     });
   }
 }
