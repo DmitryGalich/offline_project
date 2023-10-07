@@ -2,10 +2,10 @@ version: '3.5'
 
 services:
   db:
-    container_name: db
+    container_name: offline_project_db
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_PASSWORD=root
       - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
     image: postgres:15.4-alpine3.18

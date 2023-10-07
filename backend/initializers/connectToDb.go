@@ -1,6 +1,7 @@
 package initializers
 
 import (
+	"log"
 	"os"
 
 	"gorm.io/driver/postgres"
@@ -17,4 +18,6 @@ func ConnectToDb() {
 	if err != nil {
 		panic("Failed to connect to db")
 	}
+
+	log.Printf("KEK %s", DB.Name())
 }
