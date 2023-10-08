@@ -1,19 +1,19 @@
 version: '3.8'
 
 x-env: &env
-  DB_NAME: ${DB_NAME}
-  DB_USER: ${DB_USER}
-  DB_PASSWORD: ${DB_PASSWORD}
-  DB_PORT: ${DB_PORT}
+  POSTGRES_NAME: ${POSTGRES_NAME}
+  POSTGRES_USER: ${POSTGRES_USER}
+  POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+  POSTGRES_PORT: ${POSTGRES_PORT}
   BACKEND_PORT: ${BACKEND_PORT}
 
 services:
   offline_project_db:
-    container_name: ${DB_NAME}
+    container_name: ${POSTGRES_NAME}
     build:
       context: ../db
     ports:
-      - "${DB_PORT}:${DB_PORT}"
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
     environment:
       <<: *env
     restart: always
@@ -23,7 +23,7 @@ services:
     build:
       context: ../backend
     depends_on:
-      - ${DB_NAME}
+      - ${POSTGRES_NAME}
     ports:
       - "${BACKEND_PORT}:${BACKEND_PORT}"
     environment:
