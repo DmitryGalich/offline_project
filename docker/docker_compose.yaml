@@ -1,0 +1,30 @@
+version: '3.8'
+
+x-env: &env
+  DB_NAME: ${DB_NAME}
+  DB_USER: ${DB_USER}
+  DB_PASSWORD: ${DB_PASSWORD}
+  DB_PORT: ${DB_PORT}
+  BACKEND_PORT: ${BACKEND_PORT}
+
+services:
+  offline_project_db:
+    container_name: ${DB_NAME}
+    build:
+      context: ../db
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    environment:
+      <<: *env
+    restart: always
+
+  offline_project_backend:
+    container_name: ${BACKEND_NAME}
+    build:
+      context: ../backend
+    depends_on:
+      - ${DB_NAME}
+    ports:
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
+    environment:
+      <<: *env
