@@ -16,15 +16,3 @@ services:
       - "${POSTGRES_PORT}:${POSTGRES_PORT}"
     environment:
       <<: *env
-    restart: always
-
-  offline_project_backend:
-    container_name: ${BACKEND_NAME}
-    build:
-      context: ../backend
-    depends_on:
-      - ${POSTGRES_NAME}
-    ports:
-      - "${BACKEND_PORT}:${BACKEND_PORT}"
-    environment:
-      <<: *env
