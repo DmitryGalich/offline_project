@@ -14,6 +14,18 @@
 
 * basics <https://www.youtube.com/watch?v=i5-1HNf3W_Y&list=LL&index=15&t=2454s>
 
+* open docker in terminal
+```docker exec -it offline_project_db bash```
+
+* go to postgres mode
+```psql -U postgres```
+
+* list of databases
+```\l```
+
+* connect to database
+```\c offline_project_db```
+
 ## Flutter
 
 * Docker
