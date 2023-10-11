@@ -1,3 +1,3 @@
-module example.com/m/v2
+module offline_project
 
-go 1.21.2
+go 1.21.3
