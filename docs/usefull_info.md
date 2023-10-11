@@ -30,6 +30,16 @@
 * Awesome Go <https://github.com/avelino/awesome-go>
 * JWT POSTGRES GO <https://www.youtube.com/watch?v=ma7rUS_vW9M>
 
+for vscode
+  gotests
+  gomodifytags
+  impl
+  goplay
+  dlv
+  staticcheck
+  gopls
+  goimports
+
 ## Rust
 
 * oauth2 for rust
