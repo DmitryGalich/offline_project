@@ -10,10 +10,10 @@ import (
 )
 
 func main() {
-	dbname := "dbname=" + os.Getenv("POSTGRES_DB")
+	dbname := "dbname=" + os.Getenv("POSTGRES_DB_NAME")
 	username := "user=" + os.Getenv("POSTGRES_USER")
 	password := "password=" + os.Getenv("POSTGRES_PASSWORD")
-	host := "host=offline_project_db.localnet"
+	host := "host=" + os.Getenv("DOCKER_DB_CONTAINER_NAME") + "." + os.Getenv("DOCKER_NETWORK_NAME")
 	port := "port=" + os.Getenv("POSTGRES_PORT")
 	sslmode := "sslmode=disable"
 
