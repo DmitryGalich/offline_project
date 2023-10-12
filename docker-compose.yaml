@@ -11,7 +11,7 @@ services:
     ports:
       - '5432:5432'
     networks:
-      localnet: {}
+        - localnet
     volumes:
       - ./db:/home/offline_project_db
 
@@ -26,7 +26,7 @@ services:
       ports:
         - '3000:3000'
       networks:
-        localnet: {}
+        - localnet
       volumes:
         - ./backend:/home/offline_project_backend
 
