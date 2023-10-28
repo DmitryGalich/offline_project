@@ -1,3 +1,7 @@
+## Project
+
+* whole project <https://www.youtube.com/playlist?list=PLy_6D98if3ULEtXtNSY_2qN21VCKgoQAE>
+
 ## Design
 
 * <https://www.youtube.com/watch?v=mr3pywHOz7I&t=2780s>
@@ -9,6 +13,8 @@
   * <https://www.youtube.com/watch?v=ZB8JBWriDVo>
 * open in vscode <https://www.youtube.com/watch?v=mi8kpAgHYFo&t=38s>
 * attach to running container <https://www.youtube.com/watch?v=8gUtN5j4QnY>
+
+* migrations and docker-compose <https://medium.com/pengenpaham/postgres-database-migration-using-golang-migrate-docker-compose-and-makefile-159ef50670cf>
 
 ## PostgreSQL
 
