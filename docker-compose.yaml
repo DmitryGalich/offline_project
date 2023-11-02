@@ -33,10 +33,10 @@ services:
         - ./backend:/home/offline_project_backend
       depends_on:
         - offline_project_db
-        
-  offline_project_migrate_up:
-    image: migrate/migrate:4.16.2
-    command: ["-path", "/migrations", "-database", "postgres://your_username:your_password@db:5432/your_database?sslmode=disable", "up"]
+
+  offline_project_db_migrate_up:
+    image: migrate/migrate:4
+    command: ["-path", "/migrations", "-database", "postgres://postgres:123@offline_project_db:5432/offline_project_db?sslmode=disable", "up"]
     volumes:
       - ./migrations:/migrations
     networks:
@@ -44,9 +44,22 @@ services:
     depends_on:
       - offline_project_db
 
-  offline_project_migrate_down:
-    image: migrate/migrate:4.16.2
-    command: ["-path", "/migrations", "-database", "postgres://your_username:your_password@db:5432/your_database?sslmode=disable", "down"]
+  offline_project_db_migrate_down:
+    image: migrate/migrate:4
+    #                                              "postgres://your_username:your_password@your_db_docker_compose_service:5432/your_database?sslmode=disable"
+    command: ["-path", "/migrations", "-database", "postgres://postgres:123@offline_project_db:5432/offline_project_db?sslmode=disable", "down"]
+    volumes:
+      - ./migrations:/migrations
+    networks:
+      - localnet
+    depends_on:
+      - offline_project_db
+
+  offline_project_db_migrate_tool:
+    # To check current version: docker-compose run offline_project_db_migrate_tool -path /migrations -database "postgres://postgres:123@offline_project_db:5432/offline_project_db?sslmode=disable" version
+    # To check current version: docker-compose run offline_project_db_migrate_tool -path /migrations -database "postgres://postgres:123@offline_project_db:5432/offline_project_db?sslmode=disable" force <desired version>
+    # Then run service: offline_project_db_migrate_up
+    image: migrate/migrate:4
     volumes:
       - ./migrations:/migrations
     networks:
