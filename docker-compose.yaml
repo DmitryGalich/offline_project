@@ -31,6 +31,28 @@ services:
         - localnet
       volumes:
         - ./backend:/home/offline_project_backend
+      depends_on:
+        - offline_project_db
+        
+  offline_project_migrate_up:
+    image: migrate/migrate:4.16.2
+    command: ["-path", "/migrations", "-database", "postgres://your_username:your_password@db:5432/your_database?sslmode=disable", "up"]
+    volumes:
+      - ./migrations:/migrations
+    networks:
+      - localnet
+    depends_on:
+      - offline_project_db
+
+  offline_project_migrate_down:
+    image: migrate/migrate:4.16.2
+    command: ["-path", "/migrations", "-database", "postgres://your_username:your_password@db:5432/your_database?sslmode=disable", "down"]
+    volumes:
+      - ./migrations:/migrations
+    networks:
+      - localnet
+    depends_on:
+      - offline_project_db
 
 networks:
   localnet:
