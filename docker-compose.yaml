@@ -47,7 +47,7 @@ services:
   offline_project_db_migrate_down:
     image: migrate/migrate:4
     #                                              "postgres://your_username:your_password@your_db_docker_compose_service:5432/your_database?sslmode=disable"
-    command: ["-path", "/migrations", "-database", "postgres://postgres:123@offline_project_db:5432/offline_project_db?sslmode=disable", "down"]
+    command: ["-path", "/migrations", "-database", "postgres://postgres:123@offline_project_db:5432/offline_project_db?sslmode=disable", "down", "-all"]
     volumes:
       - ./migrations:/migrations
     networks:
