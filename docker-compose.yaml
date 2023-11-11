@@ -15,7 +15,6 @@ services:
 
   offline_project_db_migrate_up:
     image: migrate/migrate:4
-    command: ["-path", "/migrations", "-database", "postgres://postgres:123@offline_project_db:5432/offline_project_db?sslmode=disable", "up"]
     volumes:
       - ./migrations:/migrations
     networks:
