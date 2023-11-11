@@ -10,10 +10,18 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
     networks:
         - localnet
-    ports:
-      - '5432:5432'
     volumes:
       - ./db:/home/offline_project_db
+
+  offline_project_db_migrate_up:
+    image: migrate/migrate:4
+    command: ["-path", "/migrations", "-database", "postgres://postgres:123@offline_project_db:5432/offline_project_db?sslmode=disable", "up"]
+    volumes:
+      - ./migrations:/migrations
+    networks:
+      - localnet
+    depends_on:
+      - offline_project_db
 
 networks:
   localnet:
