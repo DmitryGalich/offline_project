@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  offline_project_db:
+    container_name: offline_project_db
+    image: postgres:15.4
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    networks:
+        - localnet
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./db:/home/offline_project_db
+
+networks:
+  localnet:
+    name: localnet
+    driver: bridge
