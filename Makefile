@@ -6,3 +6,6 @@ migrate_up:
 
 migrate_down:
 	docker-compose up	offline_project_db_migrate_down
+
+check_migration_version:
+	docker-compose up	offline_project_db_check_version
