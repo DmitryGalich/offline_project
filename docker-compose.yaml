@@ -5,9 +5,9 @@ services:
     container_name: offline_project_db
     image: postgres:15.4
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123
-      POSTGRES_DB: offline_project_db
+      POSTGRES_DB: $ARG1
+      POSTGRES_USER: $ARG2
+      POSTGRES_PASSWORD: $ARG3
     networks:
         - localnet
     volumes:

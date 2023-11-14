@@ -29,3 +29,5 @@ VERSION:=""
 force_migrate:
 	docker-compose	run	--rm	offline_project_db_migration_tool	-path	/migrations	-database	${POSTGRES_CONNECTING_STRING}	force	${VERSION}
 
+open_db:
+	docker exec -it ${POSTGRES_COMPOSE_SERVICE} bash
