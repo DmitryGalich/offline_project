@@ -22,8 +22,6 @@ services:
         - localnet
       volumes:
         - ./backend:/home/offline_project_backend
-      depends_on:
-        - offline_project_db
 
   offline_project_db_migrate_up:
     image: migrate/migrate:4
