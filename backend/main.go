@@ -1,28 +1,15 @@
 package main
 
 import (
-	"database/sql"
-	"fmt"
-	"log"
-	"os"
+	"net/http"
 
 	_ "github.com/lib/pq"
 )
 
 func main() {
-	connection_string := os.Getenv("POSTGRES_CONNECTION_STRING")
-
-	fmt.Println(connection_string)
-
-	db, err := sql.Open("postgres", connection_string)
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	if err = db.Ping(); err != nil {
-		log.Fatal(err)
-	}
-
-	defer db.Close()
+	http.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte(
+			"Hello world"))
+	})
+	http.ListenAndServe(":3000", nil)
 }

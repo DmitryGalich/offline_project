@@ -20,6 +20,8 @@ services:
         POSTGRES_CONNECTION_STRING: "postgres://postgres:123@offline_project_db:5432/offline_project_db?sslmode=disable"
       networks:
         - localnet
+      ports:
+        - "3000:3000"
       volumes:
         - ./backend:/home/offline_project_backend
 
