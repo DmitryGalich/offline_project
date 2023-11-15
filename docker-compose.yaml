@@ -8,8 +8,6 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123
       POSTGRES_DB: offline_project_db
-    ports:
-      - '5432:5432'
     networks:
         - localnet
     volumes:
@@ -19,14 +17,7 @@ services:
       container_name: offline_project_backend
       image: golang:1.21
       environment:
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: 123
-        POSTGRES_DB_NAME: offline_project_db
-        POSTGRES_PORT: 5432
-        DOCKER_NETWORK_NAME: localnet
-        DOCKER_DB_CONTAINER_NAME: offline_project_db
-      ports:
-        - '3000:3000'
+        POSTGRES_CONNECTION_STRING: "postgres://postgres:123@offline_project_db:5432/offline_project_db?sslmode=disable"
       networks:
         - localnet
       volumes:
