@@ -29,7 +29,12 @@ services:
     volumes:
       - ./backend:/home/offline_project_backend
     command:
-      ["-path", "/migrations", "-database", "postgres://postgres:123@offline_project_db:5432/offline_project_db?sslmode=disable", "up"]
+      [
+        "mkdir", "tmp", "&&",
+        "cd", "tmp", "&&",
+        "go", "get", "github.com/kyleconroy/sqlc/cmd/sqlc", "&&",
+        "go", "install", "github.com/kyleconroy/sqlc/cmd/sqlc"
+      ]
 
   offline_project_db_migrate_up:
     image: 
