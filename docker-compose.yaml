@@ -27,7 +27,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./backend:/home/offline_project_backend
+      - .:/home/
     command:
       [
         "mkdir", "tmp", "&&",
