@@ -7,9 +7,9 @@ WHERE "id" = $1 LIMIT 1;
 
 -- name: CreateUser :one
 INSERT INTO "users" (
-  "id", "login"
+  "login"
 ) VALUES (
-  $1, $2
+  $1
 )
 RETURNING *;
 
@@ -21,6 +21,8 @@ WHERE id = $1;
 -- name: DeleteUser :exec
 DELETE FROM "users"
 WHERE "id" = $1;
+
+------------------------
 
 -- name: GetChats :many
 SELECT * FROM "chats";

@@ -3,7 +3,8 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE TABLE "users" (
   "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
   "login" varchar NOT NULL
-  -- "password" varchar NOT NULL,
+  --,
+  --"password" varchar NOT NULL,
   -- "mail" varchar NOT NULL,
   -- "phone" varchar NOT NULL,
   -- "first_name" varchar NOT NULL,

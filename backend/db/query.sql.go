@@ -24,20 +24,15 @@ func (q *Queries) CreateChat(ctx context.Context) (uuid.UUID, error) {
 
 const createUser = `-- name: CreateUser :one
 INSERT INTO "users" (
-  "id", "login"
+  "login"
 ) VALUES (
-  $1, $2
+  $1
 )
 RETURNING id, login
 `
 
-type CreateUserParams struct {
-	ID    uuid.UUID
-	Login string
-}
-
-func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (User, error) {
-	row := q.db.QueryRowContext(ctx, createUser, arg.ID, arg.Login)
+func (q *Queries) CreateUser(ctx context.Context, login string) (User, error) {
+	row := q.db.QueryRowContext(ctx, createUser, login)
 	var i User
 	err := row.Scan(&i.ID, &i.Login)
 	return i, err
@@ -75,9 +70,11 @@ func (q *Queries) GetChat(ctx context.Context, id uuid.UUID) (uuid.UUID, error) 
 }
 
 const getChats = `-- name: GetChats :many
+
 SELECT id FROM "chats"
 `
 
+// ----------------------
 func (q *Queries) GetChats(ctx context.Context) ([]uuid.UUID, error) {
 	rows, err := q.db.QueryContext(ctx, getChats)
 	if err != nil {
