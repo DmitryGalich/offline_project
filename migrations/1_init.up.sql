@@ -1,12 +1,8 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE "users" (
-  "id"   BIGSERIAL PRIMARY KEY,
+  "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
   "login" varchar NOT NULL
-
-  -- "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY
-  -- ,
-  -- "login" varchar NOT NULL,
   -- "password" varchar NOT NULL,
   -- "mail" varchar NOT NULL,
   -- "phone" varchar NOT NULL,
@@ -16,9 +12,9 @@ CREATE TABLE "users" (
   -- "created_at" timestamp NOT NULL DEFAULT NOW()
 );
 
--- CREATE TABLE "chats" (
---   "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY
--- );
+CREATE TABLE "chats" (
+   "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY
+);
 
 -- CREATE TABLE "chat_comments" (
 --   "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,

@@ -21,3 +21,17 @@ WHERE id = $1;
 -- name: DeleteUser :exec
 DELETE FROM "users"
 WHERE "id" = $1;
+
+-- name: GetChats :many
+SELECT * FROM "chats";
+
+-- name: GetChat :one
+SELECT * FROM "chats"
+WHERE "id" = $1 LIMIT 1;
+
+-- name: CreateChat :one
+INSERT INTO "chats" DEFAULT VALUES RETURNING *;
+
+-- name: DeleteChat :exec
+DELETE FROM "chats"
+WHERE "id" = $1;

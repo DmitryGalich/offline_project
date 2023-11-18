@@ -4,9 +4,15 @@
 
 package db
 
-import ()
+import (
+	"github.com/google/uuid"
+)
+
+type Chat struct {
+	ID uuid.UUID
+}
 
 type User struct {
-	ID    int64
+	ID    uuid.UUID
 	Login string
 }
