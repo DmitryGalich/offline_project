@@ -2,7 +2,7 @@
 SELECT * FROM "users";
 
 -- name: GetUser :one
-SELECT * FROM "users"
+SELECT * FROM "users" 
 WHERE "id" = $1 LIMIT 1;
 
 -- name: CreateUser :one
@@ -13,27 +13,13 @@ INSERT INTO "users" (
 )
 RETURNING *;
 
--- name: UpdateUser :exec
+-- name: UpdateUser :one
 UPDATE "users"
-  set "login" = $2
-WHERE id = $1;
+SET
+login = COALESCE($2, login)
+WHERE "id" = $1
+RETURNING *;
 
 -- name: DeleteUser :exec
 DELETE FROM "users"
-WHERE "id" = $1;
-
-------------------------
-
--- name: GetChats :many
-SELECT * FROM "chats";
-
--- name: GetChat :one
-SELECT * FROM "chats"
-WHERE "id" = $1 LIMIT 1;
-
--- name: CreateChat :one
-INSERT INTO "chats" DEFAULT VALUES RETURNING *;
-
--- name: DeleteChat :exec
-DELETE FROM "chats"
 WHERE "id" = $1;
