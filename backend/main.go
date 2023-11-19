@@ -1,15 +1,27 @@
 package main
 
 import (
-	"net/http"
+	"database/sql"
+	"log"
+	"os"
 
 	_ "github.com/lib/pq"
 )
 
 func main() {
-	http.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte(
-			"Hello world"))
-	})
-	http.ListenAndServe(":3000", nil)
+	db_connecting_data := os.Getenv("POSTGRES_CONNECTION_STRING")
+	if db_connecting_data == "" {
+		log.Fatal("db_connecting_data is empty")
+	}
+
+	conn, err := sql.Open("postgres", db_connecting_data)
+	if err != nil {
+		log.Fatal("Cannot connect to database")
+	}
+
+	if conn.Ping() != nil {
+		log.Fatal("Cannot ping database")
+	}
+
+	defer conn.Close()
 }
