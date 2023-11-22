@@ -62,3 +62,35 @@ RETURNING *;
 -- name: DeleteChat :exec
 DELETE FROM "chats"
 WHERE "id" = $1;
+
+-------------------------------
+
+-- name: GetChatComments :many
+SELECT * FROM "chat_comments";
+
+-- name: GetChatComment :one
+SELECT * FROM "chat_comments" 
+WHERE "id" = $1 LIMIT 1;
+
+-- name: CreateChatComment :one
+INSERT INTO "chat_comments" (
+  "chat_id",
+  "author_id",
+  "created_at"
+) VALUES (
+  $1, $2, $3
+)
+RETURNING *;
+
+-- name: UpdateChatComment :one
+UPDATE "chat_comments"
+SET
+chat_id = COALESCE($2, chat_id),
+author_id = COALESCE($3, author_id),
+created_at = COALESCE($4, created_at)
+WHERE "id" = $1
+RETURNING *;
+
+-- name: DeleteChatComment :exec
+DELETE FROM "chat_comments"
+WHERE "id" = $1;

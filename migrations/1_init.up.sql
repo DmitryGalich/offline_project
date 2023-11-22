@@ -19,11 +19,11 @@ CREATE TABLE "chats" (
 
 CREATE TABLE "chat_comments" (
   "id" UUID NOT NULL DEFAULT (uuid_generate_v4()) PRIMARY KEY,
-  "chat" UUID NOT NULL,
-  "author" UUID NOT NULL,
+  "chat_id" UUID NOT NULL,
+  "author_id" UUID NOT NULL,
   "created_at" timestamp NOT NULL DEFAULT NOW()
 );
 
--- ALTER TABLE "chat_comments" ADD FOREIGN KEY ("chat") REFERENCES "chats" ("id");
+ALTER TABLE "chat_comments" ADD FOREIGN KEY ("chat_id") REFERENCES "chats" ("id");
 
--- ALTER TABLE "chat_comments" ADD FOREIGN KEY ("author") REFERENCES "users" ("id");
+ALTER TABLE "chat_comments" ADD FOREIGN KEY ("author_id") REFERENCES "users" ("id");

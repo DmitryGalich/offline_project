@@ -25,6 +25,35 @@ func (q *Queries) CreateChat(ctx context.Context, title string) (Chat, error) {
 	return i, err
 }
 
+const createChatComment = `-- name: CreateChatComment :one
+INSERT INTO "chat_comments" (
+  "chat_id",
+  "author_id",
+  "created_at"
+) VALUES (
+  $1, $2, $3
+)
+RETURNING id, chat_id, author_id, created_at
+`
+
+type CreateChatCommentParams struct {
+	ChatID    uuid.UUID
+	AuthorID  uuid.UUID
+	CreatedAt time.Time
+}
+
+func (q *Queries) CreateChatComment(ctx context.Context, arg CreateChatCommentParams) (ChatComment, error) {
+	row := q.db.QueryRowContext(ctx, createChatComment, arg.ChatID, arg.AuthorID, arg.CreatedAt)
+	var i ChatComment
+	err := row.Scan(
+		&i.ID,
+		&i.ChatID,
+		&i.AuthorID,
+		&i.CreatedAt,
+	)
+	return i, err
+}
+
 const createUser = `-- name: CreateUser :one
 INSERT INTO "users" (
   "login",
@@ -88,6 +117,16 @@ func (q *Queries) DeleteChat(ctx context.Context, id uuid.UUID) error {
 	return err
 }
 
+const deleteChatComment = `-- name: DeleteChatComment :exec
+DELETE FROM "chat_comments"
+WHERE "id" = $1
+`
+
+func (q *Queries) DeleteChatComment(ctx context.Context, id uuid.UUID) error {
+	_, err := q.db.ExecContext(ctx, deleteChatComment, id)
+	return err
+}
+
 const deleteUser = `-- name: DeleteUser :exec
 DELETE FROM "users"
 WHERE "id" = $1
@@ -108,6 +147,57 @@ func (q *Queries) GetChat(ctx context.Context, id uuid.UUID) (Chat, error) {
 	var i Chat
 	err := row.Scan(&i.ID, &i.Title)
 	return i, err
+}
+
+const getChatComment = `-- name: GetChatComment :one
+SELECT id, chat_id, author_id, created_at FROM "chat_comments" 
+WHERE "id" = $1 LIMIT 1
+`
+
+func (q *Queries) GetChatComment(ctx context.Context, id uuid.UUID) (ChatComment, error) {
+	row := q.db.QueryRowContext(ctx, getChatComment, id)
+	var i ChatComment
+	err := row.Scan(
+		&i.ID,
+		&i.ChatID,
+		&i.AuthorID,
+		&i.CreatedAt,
+	)
+	return i, err
+}
+
+const getChatComments = `-- name: GetChatComments :many
+
+SELECT id, chat_id, author_id, created_at FROM "chat_comments"
+`
+
+// -----------------------------
+func (q *Queries) GetChatComments(ctx context.Context) ([]ChatComment, error) {
+	rows, err := q.db.QueryContext(ctx, getChatComments)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []ChatComment
+	for rows.Next() {
+		var i ChatComment
+		if err := rows.Scan(
+			&i.ID,
+			&i.ChatID,
+			&i.AuthorID,
+			&i.CreatedAt,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
 }
 
 const getChats = `-- name: GetChats :many
@@ -215,6 +305,40 @@ func (q *Queries) UpdateChat(ctx context.Context, arg UpdateChatParams) (Chat, e
 	row := q.db.QueryRowContext(ctx, updateChat, arg.ID, arg.Title)
 	var i Chat
 	err := row.Scan(&i.ID, &i.Title)
+	return i, err
+}
+
+const updateChatComment = `-- name: UpdateChatComment :one
+UPDATE "chat_comments"
+SET
+chat_id = COALESCE($2, chat_id),
+author_id = COALESCE($3, author_id),
+created_at = COALESCE($4, created_at)
+WHERE "id" = $1
+RETURNING id, chat_id, author_id, created_at
+`
+
+type UpdateChatCommentParams struct {
+	ID        uuid.UUID
+	ChatID    uuid.UUID
+	AuthorID  uuid.UUID
+	CreatedAt time.Time
+}
+
+func (q *Queries) UpdateChatComment(ctx context.Context, arg UpdateChatCommentParams) (ChatComment, error) {
+	row := q.db.QueryRowContext(ctx, updateChatComment,
+		arg.ID,
+		arg.ChatID,
+		arg.AuthorID,
+		arg.CreatedAt,
+	)
+	var i ChatComment
+	err := row.Scan(
+		&i.ID,
+		&i.ChatID,
+		&i.AuthorID,
+		&i.CreatedAt,
+	)
 	return i, err
 }
 

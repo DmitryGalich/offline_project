@@ -17,8 +17,8 @@ type Chat struct {
 
 type ChatComment struct {
 	ID        uuid.UUID
-	Chat      uuid.UUID
-	Author    uuid.UUID
+	ChatID    uuid.UUID
+	AuthorID  uuid.UUID
 	CreatedAt time.Time
 }
 
