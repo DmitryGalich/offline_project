@@ -13,10 +13,9 @@ INSERT INTO "users" (
   "phone",
   "first_name",
   "second_name",
-  "date_of_birth",
-  "created_at"
+  "date_of_birth"
 ) VALUES (
-  $1, $2, $3, $4, $5, $6, $7, $8
+  $1, $2, $3, $4, $5, $6, $7
 )
 RETURNING *;
 
@@ -29,8 +28,7 @@ mail = COALESCE($4, mail),
 phone = COALESCE($5, phone),
 first_name = COALESCE($6, first_name),
 second_name = COALESCE($7, second_name),
-date_of_birth = COALESCE($7, date_of_birth),
-created_at = COALESCE($8, created_at)
+date_of_birth = COALESCE($7, date_of_birth)
 WHERE "id" = $1
 RETURNING *;
 

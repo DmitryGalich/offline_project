@@ -6,6 +6,7 @@ import (
 	"log"
 	"offline_project/db"
 	"os"
+	"time"
 
 	_ "github.com/lib/pq"
 )
@@ -29,7 +30,18 @@ func main() {
 	offline_project_db := db.New(conn)
 
 	// Creating user
-	user, err := offline_project_db.CreateUser(context.Background(), "LEL")
+
+	create_user_params := db.CreateUserParams{
+		Login:       "kek_login",
+		Password:    "kek_password",
+		Mail:        "kek_mail",
+		Phone:       "kek_phone",
+		FirstName:   "kek_first_name",
+		SecondName:  "kek_second_name",
+		DateOfBirth: time.Now(),
+	}
+
+	user, err := offline_project_db.CreateUser(context.Background(), create_user_params)
 	if err != nil {
 		log.Fatal("Cannot CreateUser")
 	}

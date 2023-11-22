@@ -62,10 +62,9 @@ INSERT INTO "users" (
   "phone",
   "first_name",
   "second_name",
-  "date_of_birth",
-  "created_at"
+  "date_of_birth"
 ) VALUES (
-  $1, $2, $3, $4, $5, $6, $7, $8
+  $1, $2, $3, $4, $5, $6, $7
 )
 RETURNING id, login, password, mail, phone, first_name, second_name, date_of_birth, created_at
 `
@@ -78,7 +77,6 @@ type CreateUserParams struct {
 	FirstName   string
 	SecondName  string
 	DateOfBirth time.Time
-	CreatedAt   time.Time
 }
 
 func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (User, error) {
@@ -90,7 +88,6 @@ func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (User, e
 		arg.FirstName,
 		arg.SecondName,
 		arg.DateOfBirth,
-		arg.CreatedAt,
 	)
 	var i User
 	err := row.Scan(
@@ -351,8 +348,7 @@ mail = COALESCE($4, mail),
 phone = COALESCE($5, phone),
 first_name = COALESCE($6, first_name),
 second_name = COALESCE($7, second_name),
-date_of_birth = COALESCE($7, date_of_birth),
-created_at = COALESCE($8, created_at)
+date_of_birth = COALESCE($7, date_of_birth)
 WHERE "id" = $1
 RETURNING id, login, password, mail, phone, first_name, second_name, date_of_birth, created_at
 `
@@ -365,7 +361,6 @@ type UpdateUserParams struct {
 	Phone      string
 	FirstName  string
 	SecondName string
-	CreatedAt  time.Time
 }
 
 func (q *Queries) UpdateUser(ctx context.Context, arg UpdateUserParams) (User, error) {
@@ -377,7 +372,6 @@ func (q *Queries) UpdateUser(ctx context.Context, arg UpdateUserParams) (User, e
 		arg.Phone,
 		arg.FirstName,
 		arg.SecondName,
-		arg.CreatedAt,
 	)
 	var i User
 	err := row.Scan(
