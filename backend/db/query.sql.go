@@ -12,6 +12,19 @@ import (
 	"github.com/google/uuid"
 )
 
+const createChat = `-- name: CreateChat :one
+INSERT INTO "chats" 
+( "title" ) VALUES ( $1 )
+RETURNING id, title
+`
+
+func (q *Queries) CreateChat(ctx context.Context, title string) (Chat, error) {
+	row := q.db.QueryRowContext(ctx, createChat, title)
+	var i Chat
+	err := row.Scan(&i.ID, &i.Title)
+	return i, err
+}
+
 const createUser = `-- name: CreateUser :one
 INSERT INTO "users" (
   "login",
@@ -65,6 +78,16 @@ func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (User, e
 	return i, err
 }
 
+const deleteChat = `-- name: DeleteChat :exec
+DELETE FROM "chats"
+WHERE "id" = $1
+`
+
+func (q *Queries) DeleteChat(ctx context.Context, id uuid.UUID) error {
+	_, err := q.db.ExecContext(ctx, deleteChat, id)
+	return err
+}
+
 const deleteUser = `-- name: DeleteUser :exec
 DELETE FROM "users"
 WHERE "id" = $1
@@ -73,6 +96,47 @@ WHERE "id" = $1
 func (q *Queries) DeleteUser(ctx context.Context, id uuid.UUID) error {
 	_, err := q.db.ExecContext(ctx, deleteUser, id)
 	return err
+}
+
+const getChat = `-- name: GetChat :one
+SELECT id, title FROM "chats" 
+WHERE "id" = $1 LIMIT 1
+`
+
+func (q *Queries) GetChat(ctx context.Context, id uuid.UUID) (Chat, error) {
+	row := q.db.QueryRowContext(ctx, getChat, id)
+	var i Chat
+	err := row.Scan(&i.ID, &i.Title)
+	return i, err
+}
+
+const getChats = `-- name: GetChats :many
+
+SELECT id, title FROM "chats"
+`
+
+// -----------------------------
+func (q *Queries) GetChats(ctx context.Context) ([]Chat, error) {
+	rows, err := q.db.QueryContext(ctx, getChats)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var items []Chat
+	for rows.Next() {
+		var i Chat
+		if err := rows.Scan(&i.ID, &i.Title); err != nil {
+			return nil, err
+		}
+		items = append(items, i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
 }
 
 const getUser = `-- name: GetUser :one
@@ -132,6 +196,26 @@ func (q *Queries) GetUsers(ctx context.Context) ([]User, error) {
 		return nil, err
 	}
 	return items, nil
+}
+
+const updateChat = `-- name: UpdateChat :one
+UPDATE "chats"
+SET
+title = COALESCE($2, title)
+WHERE "id" = $1
+RETURNING id, title
+`
+
+type UpdateChatParams struct {
+	ID    uuid.UUID
+	Title string
+}
+
+func (q *Queries) UpdateChat(ctx context.Context, arg UpdateChatParams) (Chat, error) {
+	row := q.db.QueryRowContext(ctx, updateChat, arg.ID, arg.Title)
+	var i Chat
+	err := row.Scan(&i.ID, &i.Title)
+	return i, err
 }
 
 const updateUser = `-- name: UpdateUser :one

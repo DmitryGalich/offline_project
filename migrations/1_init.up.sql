@@ -12,16 +12,17 @@ CREATE TABLE "users" (
   "created_at" timestamp NOT NULL DEFAULT (NOW())
 );
 
--- CREATE TABLE "chats" (
---    "id" UUID NOT NULL DEFAULT (uuid_generate_v4()) PRIMARY KEY
--- );
+CREATE TABLE "chats" (
+  "id" UUID NOT NULL DEFAULT (uuid_generate_v4()) PRIMARY KEY,
+  "title" varchar NOT NULL
+);
 
--- CREATE TABLE "chat_comments" (
---   "id" UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
---   "chat" UUID DEFAULT uuid_generate_v4() NOT NULL,
---   "author" UUID DEFAULT uuid_generate_v4() NOT NULL,
---   "created_at" timestamp NOT NULL DEFAULT NOW()
--- );
+CREATE TABLE "chat_comments" (
+  "id" UUID NOT NULL DEFAULT (uuid_generate_v4()) PRIMARY KEY,
+  "chat" UUID NOT NULL,
+  "author" UUID NOT NULL,
+  "created_at" timestamp NOT NULL DEFAULT NOW()
+);
 
 -- ALTER TABLE "chat_comments" ADD FOREIGN KEY ("chat") REFERENCES "chats" ("id");
 

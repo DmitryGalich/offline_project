@@ -37,3 +37,28 @@ RETURNING *;
 -- name: DeleteUser :exec
 DELETE FROM "users"
 WHERE "id" = $1;
+
+-------------------------------
+
+-- name: GetChats :many
+SELECT * FROM "chats";
+
+-- name: GetChat :one
+SELECT * FROM "chats" 
+WHERE "id" = $1 LIMIT 1;
+
+-- name: CreateChat :one
+INSERT INTO "chats" 
+( "title" ) VALUES ( $1 )
+RETURNING *;
+
+-- name: UpdateChat :one
+UPDATE "chats"
+SET
+title = COALESCE($2, title)
+WHERE "id" = $1
+RETURNING *;
+
+-- name: DeleteChat :exec
+DELETE FROM "chats"
+WHERE "id" = $1;

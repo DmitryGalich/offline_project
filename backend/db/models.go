@@ -10,6 +10,18 @@ import (
 	"github.com/google/uuid"
 )
 
+type Chat struct {
+	ID    uuid.UUID
+	Title string
+}
+
+type ChatComment struct {
+	ID        uuid.UUID
+	Chat      uuid.UUID
+	Author    uuid.UUID
+	CreatedAt time.Time
+}
+
 type User struct {
 	ID          uuid.UUID
 	Login       string
