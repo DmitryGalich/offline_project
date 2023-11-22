@@ -50,8 +50,14 @@ func main() {
 
 	{
 		params := db.UpdateUserParams{
-			ID:    user.ID,
-			Login: "KEK",
+			ID:          user.ID,
+			Login:       "KEK_login",
+			Password:    "KEK_password",
+			Mail:        "KEK_mail",
+			Phone:       "KEK_phone",
+			FirstName:   "KEK_first_name",
+			SecondName:  "KEK_second_name",
+			DateOfBirth: time.Now(),
 		}
 
 		user, err := offline_project_db.UpdateUser(context.Background(), params)
