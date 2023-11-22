@@ -29,7 +29,7 @@ func main() {
 
 	offline_project_db := db.New(conn)
 
-	// Creating user
+	log.Println("CREATING USER")
 	create_user_params := db.CreateUserParams{
 		Login:       "kek_login",
 		Password:    "kek_password",
@@ -45,7 +45,7 @@ func main() {
 	}
 	log.Println("USER: ", user)
 
-	// Updating user
+	log.Println("UPDATING USER")
 	{
 		params := db.UpdateUserParams{
 			ID:          user.ID,
@@ -58,45 +58,45 @@ func main() {
 			DateOfBirth: time.Now(),
 		}
 
-		user, err := offline_project_db.UpdateUser(context.Background(), params)
+		local_user, err := offline_project_db.UpdateUser(context.Background(), params)
 		if err != nil {
 			log.Fatal("Cannot UpdateUser")
 		}
 
-		log.Println(user)
+		log.Println(local_user)
 	}
 
-	// Getting user
+	log.Println("GETTING USER")
 	{
-		user, err := offline_project_db.GetUser(context.Background(), user.ID)
+		local_user, err := offline_project_db.GetUser(context.Background(), user.ID)
 		if err != nil {
 			log.Fatal("Cannot GetUser")
 		}
 
-		log.Println("USERS: ", user)
+		log.Println("USERS: ", local_user)
 	}
 
-	// Creating chat
+	log.Println("CREATING CHAT")
 	chat, err := offline_project_db.CreateChat(context.Background(), "kek_chat")
 	if err != nil {
 		log.Fatal("Cannot CreateChat")
 	}
 	log.Println("CHAT: ", chat)
 
-	// Updating chat
+	log.Println("UPDATING CHAT")
 	{
 		params := db.UpdateChatParams{
 			ID:    chat.ID,
 			Title: "KEK_chat",
 		}
-		updated_chat, err := offline_project_db.UpdateChat(context.Background(), params)
+		local_chat, err := offline_project_db.UpdateChat(context.Background(), params)
 		if err != nil {
-			log.Fatal("Cannot CreateChat")
+			log.Fatal("Cannot UpdateChat")
 		}
-		log.Println("CHAT: ", updated_chat)
+		log.Println("CHAT: ", local_chat)
 	}
 
-	// Getting chat
+	log.Println("GETTING CHAT")
 	{
 		local_chat, err := offline_project_db.GetChat(context.Background(), chat.ID)
 		if err != nil {
@@ -106,10 +106,47 @@ func main() {
 		log.Println("CHAT: ", local_chat)
 	}
 
-	chat_comment_param :=
-		db.CreateChatCommentParams{}
+	log.Println("CREATING CHAT COMMENT")
+	chat_comment_param := db.CreateChatCommentParams{
+		ChatID:   chat.ID,
+		AuthorID: user.ID,
+		Text:     "kek",
+	}
+	chat_comment, err := offline_project_db.CreateChatComment(context.Background(), chat_comment_param)
+	if err != nil {
+		log.Fatal("Cannot CreateChatComment")
+	}
+	log.Println("CHAT COMMENT: ", chat_comment)
 
-	// Deleting chat
+	log.Println("GETTING CHAT COMMENT")
+	{
+		local_chat_comment, err := offline_project_db.GetChatComment(context.Background(), chat_comment.ID)
+		if err != nil {
+			log.Fatal("Cannot GetChatComment")
+		}
+
+		log.Println("CHAT_COMMENT: ", local_chat_comment)
+	}
+
+	log.Println("DELETING CHAT COMMENTS")
+	{
+		err := offline_project_db.DeleteChatComment(context.Background(), chat_comment.ID)
+		if err != nil {
+			log.Fatal("Cannot DeleteChatComment")
+		}
+	}
+
+	log.Println("GETTING CHAT COMMENTS")
+	{
+		local_chat_comments, err := offline_project_db.GetChatComments(context.Background())
+		if err != nil {
+			log.Fatal("Cannot GetChatComments")
+		}
+
+		log.Println("CHAT_COMMENTS: ", local_chat_comments)
+	}
+
+	log.Println("DELETING CHAT")
 	{
 		err := offline_project_db.DeleteChat(context.Background(), chat.ID)
 		if err != nil {
@@ -117,7 +154,17 @@ func main() {
 		}
 	}
 
-	// Deleting user
+	log.Println("GETTING CHATS")
+	{
+		local_chats, err := offline_project_db.GetChats(context.Background())
+		if err != nil {
+			log.Fatal("Cannot GetChats")
+		}
+
+		log.Println("CHATS: ", local_chats)
+	}
+
+	log.Println("DELETING CHAT")
 	{
 		err := offline_project_db.DeleteUser(context.Background(), user.ID)
 		if err != nil {
@@ -125,7 +172,7 @@ func main() {
 		}
 	}
 
-	// Getting users
+	log.Println("GETTING USERS")
 	{
 		users, err := offline_project_db.GetUsers(context.Background())
 		if err != nil {
