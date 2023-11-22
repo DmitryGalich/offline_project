@@ -164,7 +164,7 @@ func main() {
 		log.Println("CHATS: ", local_chats)
 	}
 
-	log.Println("DELETING CHAT")
+	log.Println("DELETING USERS")
 	{
 		err := offline_project_db.DeleteUser(context.Background(), user.ID)
 		if err != nil {
