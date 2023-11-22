@@ -106,6 +106,9 @@ func main() {
 		log.Println("CHAT: ", local_chat)
 	}
 
+	chat_comment_param :=
+		db.CreateChatCommentParams{}
+
 	// Deleting chat
 	{
 		err := offline_project_db.DeleteChat(context.Background(), chat.ID)

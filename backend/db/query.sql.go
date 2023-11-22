@@ -29,27 +29,29 @@ const createChatComment = `-- name: CreateChatComment :one
 INSERT INTO "chat_comments" (
   "chat_id",
   "author_id",
-  "created_at"
+  "text"
 ) VALUES (
   $1, $2, $3
 )
-RETURNING id, chat_id, author_id, created_at
+RETURNING id, chat_id, author_id, created_at, edited_at, text
 `
 
 type CreateChatCommentParams struct {
-	ChatID    uuid.UUID
-	AuthorID  uuid.UUID
-	CreatedAt time.Time
+	ChatID   uuid.UUID
+	AuthorID uuid.UUID
+	Text     string
 }
 
 func (q *Queries) CreateChatComment(ctx context.Context, arg CreateChatCommentParams) (ChatComment, error) {
-	row := q.db.QueryRowContext(ctx, createChatComment, arg.ChatID, arg.AuthorID, arg.CreatedAt)
+	row := q.db.QueryRowContext(ctx, createChatComment, arg.ChatID, arg.AuthorID, arg.Text)
 	var i ChatComment
 	err := row.Scan(
 		&i.ID,
 		&i.ChatID,
 		&i.AuthorID,
 		&i.CreatedAt,
+		&i.EditedAt,
+		&i.Text,
 	)
 	return i, err
 }
@@ -147,7 +149,7 @@ func (q *Queries) GetChat(ctx context.Context, id uuid.UUID) (Chat, error) {
 }
 
 const getChatComment = `-- name: GetChatComment :one
-SELECT id, chat_id, author_id, created_at FROM "chat_comments" 
+SELECT id, chat_id, author_id, created_at, edited_at, text FROM "chat_comments" 
 WHERE "id" = $1 LIMIT 1
 `
 
@@ -159,13 +161,15 @@ func (q *Queries) GetChatComment(ctx context.Context, id uuid.UUID) (ChatComment
 		&i.ChatID,
 		&i.AuthorID,
 		&i.CreatedAt,
+		&i.EditedAt,
+		&i.Text,
 	)
 	return i, err
 }
 
 const getChatComments = `-- name: GetChatComments :many
 
-SELECT id, chat_id, author_id, created_at FROM "chat_comments"
+SELECT id, chat_id, author_id, created_at, edited_at, text FROM "chat_comments"
 `
 
 // -----------------------------
@@ -183,6 +187,8 @@ func (q *Queries) GetChatComments(ctx context.Context) ([]ChatComment, error) {
 			&i.ChatID,
 			&i.AuthorID,
 			&i.CreatedAt,
+			&i.EditedAt,
+			&i.Text,
 		); err != nil {
 			return nil, err
 		}
@@ -310,16 +316,18 @@ UPDATE "chat_comments"
 SET
 chat_id = COALESCE($2, chat_id),
 author_id = COALESCE($3, author_id),
-created_at = COALESCE($4, created_at)
+edited_at = COALESCE($4, edited_at),
+text = COALESCE($5, text)
 WHERE "id" = $1
-RETURNING id, chat_id, author_id, created_at
+RETURNING id, chat_id, author_id, created_at, edited_at, text
 `
 
 type UpdateChatCommentParams struct {
-	ID        uuid.UUID
-	ChatID    uuid.UUID
-	AuthorID  uuid.UUID
-	CreatedAt time.Time
+	ID       uuid.UUID
+	ChatID   uuid.UUID
+	AuthorID uuid.UUID
+	EditedAt time.Time
+	Text     string
 }
 
 func (q *Queries) UpdateChatComment(ctx context.Context, arg UpdateChatCommentParams) (ChatComment, error) {
@@ -327,7 +335,8 @@ func (q *Queries) UpdateChatComment(ctx context.Context, arg UpdateChatCommentPa
 		arg.ID,
 		arg.ChatID,
 		arg.AuthorID,
-		arg.CreatedAt,
+		arg.EditedAt,
+		arg.Text,
 	)
 	var i ChatComment
 	err := row.Scan(
@@ -335,6 +344,8 @@ func (q *Queries) UpdateChatComment(ctx context.Context, arg UpdateChatCommentPa
 		&i.ChatID,
 		&i.AuthorID,
 		&i.CreatedAt,
+		&i.EditedAt,
+		&i.Text,
 	)
 	return i, err
 }

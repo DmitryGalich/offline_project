@@ -20,6 +20,8 @@ type ChatComment struct {
 	ChatID    uuid.UUID
 	AuthorID  uuid.UUID
 	CreatedAt time.Time
+	EditedAt  time.Time
+	Text      string
 }
 
 type User struct {

@@ -21,7 +21,9 @@ CREATE TABLE "chat_comments" (
   "id" UUID NOT NULL DEFAULT (uuid_generate_v4()) PRIMARY KEY,
   "chat_id" UUID NOT NULL,
   "author_id" UUID NOT NULL,
-  "created_at" timestamp NOT NULL DEFAULT NOW()
+  "created_at" timestamp NOT NULL DEFAULT NOW(),
+  "edited_at" timestamp NOT NULL DEFAULT NOW(),
+  "text" varchar NOT NULL
 );
 
 ALTER TABLE "chat_comments" ADD FOREIGN KEY ("chat_id") REFERENCES "chats" ("id");

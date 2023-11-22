@@ -74,7 +74,7 @@ WHERE "id" = $1 LIMIT 1;
 INSERT INTO "chat_comments" (
   "chat_id",
   "author_id",
-  "created_at"
+  "text"
 ) VALUES (
   $1, $2, $3
 )
@@ -85,7 +85,8 @@ UPDATE "chat_comments"
 SET
 chat_id = COALESCE($2, chat_id),
 author_id = COALESCE($3, author_id),
-created_at = COALESCE($4, created_at)
+edited_at = COALESCE($4, edited_at),
+text = COALESCE($5, text)
 WHERE "id" = $1
 RETURNING *;
 
