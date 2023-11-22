@@ -30,7 +30,6 @@ func main() {
 	offline_project_db := db.New(conn)
 
 	// Creating user
-
 	create_user_params := db.CreateUserParams{
 		Login:       "kek_login",
 		Password:    "kek_password",
@@ -40,14 +39,13 @@ func main() {
 		SecondName:  "kek_second_name",
 		DateOfBirth: time.Now(),
 	}
-
 	user, err := offline_project_db.CreateUser(context.Background(), create_user_params)
 	if err != nil {
 		log.Fatal("Cannot CreateUser")
 	}
+	log.Println("USER: ", user)
 
-	log.Println(user)
-
+	// Updating user
 	{
 		params := db.UpdateUserParams{
 			ID:          user.ID,
@@ -68,17 +66,55 @@ func main() {
 		log.Println(user)
 	}
 
-	log.Println("USER: ")
-
+	// Getting user
 	{
 		user, err := offline_project_db.GetUser(context.Background(), user.ID)
 		if err != nil {
 			log.Fatal("Cannot GetUser")
 		}
 
-		log.Println(user)
+		log.Println("USERS: ", user)
 	}
 
+	// Creating chat
+	chat, err := offline_project_db.CreateChat(context.Background(), "kek_chat")
+	if err != nil {
+		log.Fatal("Cannot CreateChat")
+	}
+	log.Println("CHAT: ", chat)
+
+	// Updating chat
+	{
+		params := db.UpdateChatParams{
+			ID:    chat.ID,
+			Title: "KEK_chat",
+		}
+		updated_chat, err := offline_project_db.UpdateChat(context.Background(), params)
+		if err != nil {
+			log.Fatal("Cannot CreateChat")
+		}
+		log.Println("CHAT: ", updated_chat)
+	}
+
+	// Getting chat
+	{
+		local_chat, err := offline_project_db.GetChat(context.Background(), chat.ID)
+		if err != nil {
+			log.Fatal("Cannot GetChat")
+		}
+
+		log.Println("CHAT: ", local_chat)
+	}
+
+	// Deleting chat
+	{
+		err := offline_project_db.DeleteChat(context.Background(), chat.ID)
+		if err != nil {
+			log.Fatal("Cannot DeleteChat")
+		}
+	}
+
+	// Deleting user
 	{
 		err := offline_project_db.DeleteUser(context.Background(), user.ID)
 		if err != nil {
@@ -86,14 +122,13 @@ func main() {
 		}
 	}
 
-	log.Println("USERS: ")
-
+	// Getting users
 	{
 		users, err := offline_project_db.GetUsers(context.Background())
 		if err != nil {
 			log.Fatal("Cannot GetUsers")
 		}
 
-		log.Println(users)
+		log.Println("USERS: ", users)
 	}
 }
