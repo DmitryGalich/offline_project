@@ -28,7 +28,7 @@ mail = COALESCE($4, mail),
 phone = COALESCE($5, phone),
 first_name = COALESCE($6, first_name),
 second_name = COALESCE($7, second_name),
-date_of_birth = COALESCE($7, date_of_birth)
+date_of_birth = COALESCE($8, date_of_birth)
 WHERE "id" = $1
 RETURNING *;
 
