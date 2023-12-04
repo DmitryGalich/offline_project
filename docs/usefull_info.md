@@ -58,6 +58,9 @@ for vscode
   gopls
   goimports
 
+* For protobuf generating
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+
 ## Rust
 
 * oauth2 for rust
