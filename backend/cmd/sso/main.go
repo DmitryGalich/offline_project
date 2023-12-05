@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log/slog"
+	"offline_project/app"
 	"offline_project/internal/config"
 	"os"
 )
@@ -21,9 +22,8 @@ func main() {
 	log.Info("Starting application",
 		slog.Any("confg", cfg))
 
-	log.Warn("Warn")
-	log.Error("Error")
-	log.Debug("Debug")
+	application := app.New(log, cfg.GRPC.Port, cfg.StoragePath, cfg.TokenTTL)
+	application.GRPCServer.MustRun()
 }
 
 func setupLogger(env string) *slog.Logger {
