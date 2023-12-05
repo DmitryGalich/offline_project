@@ -15,17 +15,19 @@ func Register(gRPC *grpc.Server) {
 	ssov1.RegisterAuthServer(gRPC, &serverAPI{})
 }
 
-func (s *serverAPI) Register(
-	ctx context.Context,
-	req *ssov1.RegisterRequest,
-) (*ssov1.RegisterResponse, error) {
-	panic("Implement me")
-}
-
 func (s *serverAPI) Login(
 	ctx context.Context,
 	req *ssov1.LoginRequest,
 ) (*ssov1.LoginResponse, error) {
+	return &ssov1.LoginResponse{
+		Token: "token1234",
+	}, nil
+}
+
+func (s *serverAPI) Register(
+	ctx context.Context,
+	req *ssov1.RegisterRequest,
+) (*ssov1.RegisterResponse, error) {
 	panic("Implement me")
 }
 
