@@ -65,6 +65,9 @@ protoc -I proto/ proto/sso/sso.proto --go_out=gen/ --go_opt=paths=source_relativ
 * For env configs parsing
 go get -u github.com/ilyakaznacheev/cleanenv
 
+* For grpc
+go get -u google.golang.org/grpc
+
 ## Rust
 
 * oauth2 for rust
