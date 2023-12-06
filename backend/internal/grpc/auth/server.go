@@ -31,10 +31,11 @@ type Auth interface {
 
 type serverAPI struct {
 	ssov1.UnimplementedAuthServer
+	auth Auth
 }
 
-func Register(gRPC *grpc.Server) {
-	ssov1.RegisterAuthServer(gRPC, &serverAPI{})
+func Register(gRPC *grpc.Server, auth Auth) {
+	ssov1.RegisterAuthServer(gRPC, &serverAPI{auth: auth})
 }
 
 const (
@@ -57,8 +58,14 @@ func (s *serverAPI) Login(
 		return nil, status.Error(codes.InvalidArgument, "app_id is required")
 	}
 
+	token, err := s.auth.Login(ctx, req.GetEmail(), req.GetPassword(), int(req.GetAppId()))
+	if err != nil {
+		// TODO: Handle error
+		return nil, status.Error(codes.Internal, "internal error")
+	}
+
 	return &ssov1.LoginResponse{
-		Token: "token1234",
+		Token: token,
 	}, nil
 }
 
