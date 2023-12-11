@@ -68,6 +68,12 @@ go get -u github.com/ilyakaznacheev/cleanenv
 * For grpc
 go get -u google.golang.org/grpc
 
+* For crypto
+go get golang.org/x/crypto
+
+* BOOKS
+https://github.com/diptomondal007/GoLangBooks.git
+
 ## Rust
 
 * oauth2 for rust
