@@ -1,5 +1,5 @@
 FROM golang:1.21
 
-COPY . .
+WORKDIR /offline_project/backend/service_db_handler
 
-CMD ["--network=dockers_net"]
+COPY . .
