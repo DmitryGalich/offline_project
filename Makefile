@@ -1,5 +1,6 @@
-run_db_handler:
-	docker-compose	up	service_db_handler
+setup_dockers_network:
+	docker	network	create	dockers_network
+
 
 
 
