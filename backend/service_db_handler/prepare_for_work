@@ -8,3 +8,4 @@ go get -u github.com/haya14busa/goplay/cmd/goplay@v1.0.0
 go get -u github.com/go-delve/delve/cmd/dlv@latest
 go get -u honnef.co/go/tools/cmd/staticcheck@latest
 go install golang.org/x/tools/cmd/goimports@latest
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest

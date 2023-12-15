@@ -72,7 +72,7 @@ go get -u google.golang.org/grpc
 go get golang.org/x/crypto
 
 * BOOKS
-https://github.com/diptomondal007/GoLangBooks.git
+<https://github.com/diptomondal007/GoLangBooks.git>
 
 ## Rust
 
