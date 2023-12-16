@@ -1,4 +1,9 @@
-DOCKERS_NETWORK_NAME := dockers_network
+NETWORK_NAME := dockers_network
 
-create_docker_network:
-	docker network create ${DOCKERS_NETWORK_NAME}
+connect_containers:
+    @docker network create $(NETWORK_NAME) || true
+    @docker network connect $(NETWORK_NAME) $(shell docker ps -q)
+
+disconnect_containers:
+    @docker network disconnect $(NETWORK_NAME) $(shell docker ps -q)
+	@docker network rm $(NETWORK_NAME)
