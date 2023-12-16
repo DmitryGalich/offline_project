@@ -1,6 +1,5 @@
 syntax = "proto3";
 
-// package protobuf_generated;
 option go_package = "protobuf_generated/example";
 
 service ExampleService {
