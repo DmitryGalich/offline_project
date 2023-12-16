@@ -1,2 +1,2 @@
-gen:
-	protoc	-I	.	example/example.proto	--go_out=gen/	--go_opt=paths=source_relative	--go-grpc_out=gen/	--go-grpc_opt=paths=source_relative
+gen_example:
+	protoc --go-grpc_out=example/gen --go-grpc_opt=paths=source_relative example/example.proto
