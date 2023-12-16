@@ -1,6 +1,7 @@
 syntax = "proto3";
+package example_package;
 
-option go_package = "protobuf_generated/example";
+option go_package = ".";
 
 service ExampleService {
     rpc GetMessage(MessageRequest) returns (MessageResponse) {}
