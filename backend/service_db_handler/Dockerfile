@@ -1,6 +1,6 @@
 FROM golang:1.21
 
-WORKDIR /offline_project/backend/service_gateway
+WORKDIR /offline_project/backend/service_db_handler
 
 COPY . .
 
@@ -19,5 +19,3 @@ RUN go install -v "google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2"
 RUN apt update
 RUN apt install -y protobuf-compiler
 RUN export PATH="$PATH:$(go env GOPATH)/bin"
-
-EXPOSE 8080
