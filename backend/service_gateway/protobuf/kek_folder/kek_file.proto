@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package package_kek;
 
-option go_package = "kekv1.kek_pac";
+option go_package = ".";
 
 service Greeter {
     // Sends a greeting

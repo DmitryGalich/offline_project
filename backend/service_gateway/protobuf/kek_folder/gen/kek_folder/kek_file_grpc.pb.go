@@ -4,7 +4,7 @@
 // - protoc             v3.21.12
 // source: kek_folder/kek_file.proto
 
-package kekv1_kek_pac
+package __
 
 import (
 	context "context"
