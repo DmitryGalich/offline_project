@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package helloworld;
+package helloworldkek;
 
-option go_package = ".";
+option go_package = "helloworldkek.helloworldkek";
 
 service Greeter {
     // Sends a greeting

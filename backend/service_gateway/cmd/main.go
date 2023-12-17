@@ -4,11 +4,11 @@ import (
 	"context"
 	"flag"
 	"log"
+	helloworldkek_helloworldkek "service_db_handler/protobuf/helloworld/gen/helloworld"
 	"time"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
-	"google.golang.org/grpc/examples/helloworld/helloworld"
 )
 
 const (
@@ -28,12 +28,12 @@ func main() {
 		log.Fatalf("did not connect: %v", err)
 	}
 	defer conn.Close()
-	c := helloworld.NewGreeterClient(conn)
+	c := helloworldkek_helloworldkek.NewGreeterClient(conn)
 
 	// Contact the server and print out its response.
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	r, err := c.SayHello(ctx, &helloworld.HelloRequest{Name: *name})
+	r, err := c.SayHello(ctx, &helloworldkek_helloworldkek.HelloRequest{Name: *name})
 	if err != nil {
 		log.Fatalf("could not greet: %v", err)
 	}
