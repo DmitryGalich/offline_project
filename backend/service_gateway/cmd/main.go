@@ -4,7 +4,7 @@ import (
 	"context"
 	"flag"
 	"log"
-	kek "service_db_handler/protobuf/kek_folder/gen/kek_folder"
+	kek "service_db_handler/protobuf/kek/gen/kek"
 	"time"
 
 	"google.golang.org/grpc"
