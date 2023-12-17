@@ -17,5 +17,6 @@
 				"ms-vscode.makefile-tools"
 			]
 		}
-	}
+	},
+	"postStartCommand": "bash scripts/prepare_for_work.sh"
 }
