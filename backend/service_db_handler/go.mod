@@ -49,7 +49,7 @@ require (
 	golang.org/x/tools v0.16.1 // indirect
 	golang.org/x/tools/gopls v0.14.2 // indirect
 	golang.org/x/vuln v1.0.1 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20231106174013-bbf56f31fb17 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20231002182017-d307bd883b97 // indirect
 	google.golang.org/grpc v1.60.0 // indirect
 	google.golang.org/protobuf v1.31.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect

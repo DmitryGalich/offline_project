@@ -1,4 +1,4 @@
 ROOT_DIR:=$(realpath $(shell dirname $(firstword $(MAKEFILE_LIST))))
 
-gen_helloworld:
-	protoc	-I=$(ROOT_DIR)	--go_out=$(ROOT_DIR)/helloworld/gen/	--go_opt=paths=source_relative	--go-grpc_out=$(ROOT_DIR)/helloworld/gen/	--go-grpc_opt=paths=source_relative	$(ROOT_DIR)/helloworld/helloworld.proto
+gen_kek:
+	protoc	-I=$(ROOT_DIR)	--go_out=$(ROOT_DIR)/kek_folder/gen/	--go_opt=paths=source_relative	--go-grpc_out=$(ROOT_DIR)/kek_folder/gen/	--go-grpc_opt=paths=source_relative	$(ROOT_DIR)/kek_folder/kek_file.proto

@@ -4,7 +4,7 @@ import (
 	"context"
 	"flag"
 	"log"
-	helloworldkek_helloworldkek "service_db_handler/protobuf/helloworld/gen/helloworld"
+	kek "service_db_handler/protobuf/kek_folder/gen/kek_folder"
 	"time"
 
 	"google.golang.org/grpc"
@@ -22,18 +22,20 @@ var (
 
 func main() {
 	flag.Parse()
+
 	// Set up a connection to the server.
 	conn, err := grpc.Dial(*addr, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
 	defer conn.Close()
-	c := helloworldkek_helloworldkek.NewGreeterClient(conn)
+
+	c := kek.NewGreeterClient(conn)
 
 	// Contact the server and print out its response.
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	r, err := c.SayHello(ctx, &helloworldkek_helloworldkek.HelloRequest{Name: *name})
+	r, err := c.SayHello(ctx, &kek.HelloRequest{Name: *name})
 	if err != nil {
 		log.Fatalf("could not greet: %v", err)
 	}
