@@ -86,7 +86,7 @@ func handleConnection(conn net.Conn) {
 }
 
 func main() {
-	listener, err := net.Listen("tcp", "127.0.0.1:8080")
+	listener, err := net.Listen("tcp", "192.168.50.20:8080")
 	if err != nil {
 		fmt.Println("Error listening:", err.Error())
 		return

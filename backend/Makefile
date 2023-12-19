@@ -1,7 +1,7 @@
 NETWORK_NAME	:=	dockers_network
 
 create_network:
-	docker	network	create	${NETWORK_NAME};
+	docker	network	create	--subnet=192.168.50.0/24	--gateway=192.168.50.1	${NETWORK_NAME};
 remove_network:
 	docker	network	rm	${NETWORK_NAME};
 
@@ -31,3 +31,6 @@ network_info:
 
 list_networks:
 	docker network ls
+
+docker network connect --ip 192.168.50.10 dockers_network 9e0ce03be0a30089ff81b4b4aaa0574d4675ffdf214369f2693acc9aa0fdb
+docker network connect --ip 192.168.50.20 dockers_network 44fa54b0530b405dfa574765817f20cf3b3f2e77f41c5c50696ef150b3816745
