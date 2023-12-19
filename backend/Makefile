@@ -23,3 +23,6 @@ list_connected_containers:
 	docker	network	inspect	\
 	-f	'{{	range	$$key,	$$value	:=	.Containers	}}{{	printf	"%s\n"	$$key}}{{	end	}}'	\
 	${NETWORK_NAME}
+
+list_containers_ip:
+	docker ps -q | xargs -n 1 docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}} {{ .Name }}' | sed 's/ \// /'
