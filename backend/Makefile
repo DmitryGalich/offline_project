@@ -1,23 +1,35 @@
 NETWORK_NAME	:=	dockers_network
+SUBNET	:=	192.168.50.0/24
+GATEWAY	:=	192.168.50.1
 
 create_network:
-	docker	network	create	--subnet=192.168.50.0/24	--gateway=192.168.50.1	${NETWORK_NAME};
+	docker	network	create	--subnet=${SUBNET}	--gateway=${GATEWAY}	${NETWORK_NAME};
 remove_network:
 	docker	network	rm	${NETWORK_NAME};
 
-connect_containers:
-	for	container_id	in	$$(docker	ps	-aq);	\
-	do	\
-		docker	network	connect	${NETWORK_NAME}	$$container_id;	\
-	done;
-disconnect_containers:
-	for	container_id	in	$$(docker	ps	-aq);	\
-	do	\
-		docker	network	disconnect	${NETWORK_NAME}	$$container_id;	\
-	done;
+SERVICE_GATEWAY_NAME	:=	service_gateway
+SERVICE_GATEWAY_IP	:=	192.168.50.10
 
-set_down_network:	disconnect_containers	remove_network
-set_up_network:	create_network	connect_containers
+connect_gateway:
+	docker	network	connect	--ip	${SERVICE_GATEWAY_IP}	${NETWORK_NAME}	${SERVICE_GATEWAY_NAME};
+diconnect_gateway:
+	docker	network	disconnect	${NETWORK_NAME}	${SERVICE_GATEWAY_NAME};
+
+SERVICE_DB_HANDLER_NAME	:=	service_db_handler
+SERVICE_DB_HANDLER_IP	:=	192.168.50.20
+
+connect_db_handler:
+	docker	network	connect	--ip	${SERVICE_DB_HANDLER_IP}	${NETWORK_NAME}	${SERVICE_DB_HANDLER_NAME};
+disconnect_db_handler:
+	docker	network	disconnect	${NETWORK_NAME}	${SERVICE_DB_HANDLER_NAME};
+
+connect_containers:	connect_gateway	connect_db_handler
+disconnect_containers:	disconnect_gateway	disconnect_db_handler
+
+stop_network:	disconnect_containers	remove_network
+start_network:	create_network	connect_containers
+
+#	INFO	==========================================
 
 list_connected_containers:
 	docker	network	inspect	\
@@ -31,6 +43,3 @@ network_info:
 
 list_networks:
 	docker network ls
-
-docker network connect --ip 192.168.50.10 dockers_network 9e0ce03be0a30089ff81b4b4aaa0574d4675ffdf214369f2693acc9aa0fdb
-docker network connect --ip 192.168.50.20 dockers_network 44fa54b0530b405dfa574765817f20cf3b3f2e77f41c5c50696ef150b3816745
