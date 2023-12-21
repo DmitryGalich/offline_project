@@ -19,3 +19,8 @@ go install -v "google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2"
 apt update
 apt install -y protobuf-compiler
 export PATH="$PATH:$(go env GOPATH)/bin"
+
+mkdir tmp
+cd tmp
+go get github.com/kyleconroy/sqlc/cmd/sqlc
+go install github.com/kyleconroy/sqlc/cmd/sqlc
