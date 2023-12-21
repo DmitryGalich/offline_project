@@ -18,5 +18,9 @@
 			]
 		}
 	},
-	"postStartCommand": "bash scripts/prepare_for_work.sh"
+	"postStartCommand": "bash scripts/prepare_for_work.sh",
+	"runArgs": [
+		"--name",
+		"service_db_handler"
+	]
 }
