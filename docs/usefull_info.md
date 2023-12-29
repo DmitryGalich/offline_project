@@ -79,3 +79,14 @@ go get golang.org/x/crypto
 * oauth2 for rust
   * <https://docs.rs/oauth2/latest/oauth2/>
   * <https://www.youtube.com/watch?v=S8Usi3zsLIs>
+
+## Architecture
+
+* Kong
+* GraphQL
+
+* Patterns
+<https://www.youtube.com/watch?v=_RCiOo4Dv8w>
+
+* Avito
+<https://www.youtube.com/watch?v=eI1QQUrFUZI&t=1678s>
