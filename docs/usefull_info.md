@@ -90,3 +90,6 @@ go get golang.org/x/crypto
 
 * Avito
 <https://www.youtube.com/watch?v=eI1QQUrFUZI&t=1678s>
+
+* Uber architecture
+<https://www.youtube.com/watch?v=R_agd5qZ26Y>
