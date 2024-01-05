@@ -7,14 +7,6 @@ create_network:
 remove_network:
 	docker	network	rm	${NETWORK_NAME};
 
-SERVICE_GATEWAY_NAME	:=	service_gateway
-SERVICE_GATEWAY_IP	:=	192.168.50.10
-
-connect_gateway:
-	docker	network	connect	--ip	${SERVICE_GATEWAY_IP}	${NETWORK_NAME}	${SERVICE_GATEWAY_NAME};
-diconnect_gateway:
-	docker	network	disconnect	${NETWORK_NAME}	${SERVICE_GATEWAY_NAME};
-
 SERVICE_DB_HANDLER_NAME	:=	service_db_handler
 SERVICE_DB_HANDLER_IP	:=	192.168.50.20
 
@@ -23,8 +15,8 @@ connect_db_handler:
 disconnect_db_handler:
 	docker	network	disconnect	${NETWORK_NAME}	${SERVICE_DB_HANDLER_NAME};
 
-connect_containers:	connect_gateway	connect_db_handler
-disconnect_containers:	disconnect_gateway	disconnect_db_handler
+connect_containers:	connect_db_handler
+disconnect_containers:	disconnect_db_handler
 
 stop_network:	disconnect_containers	remove_network
 start_network:	create_network	connect_containers
