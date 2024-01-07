@@ -93,3 +93,14 @@ go get golang.org/x/crypto
 
 * Uber architecture
 <https://www.youtube.com/watch?v=R_agd5qZ26Y>
+
+* NGINX microservices
+<https://www.grizzlypeaksoftware.com/articles?id=4vlfDp2ZanpAh3bSuUzPeZ>
+
+<https://habr.com/ru/articles/779276/>
+
+<https://yasithev.medium.com/nginx-as-an-api-gateway-with-oauth-2-0-authorization-on-aws-4d7dbfe2a85b>
+
+<https://habr.com/ru/articles/650911/>
+
+<https://ncarlier.gitbooks.io/oss-api-management/content/howto-kong_with_keycloak.html>
