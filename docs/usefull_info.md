@@ -104,3 +104,5 @@ go get golang.org/x/crypto
 <https://habr.com/ru/articles/650911/>
 
 <https://ncarlier.gitbooks.io/oss-api-management/content/howto-kong_with_keycloak.html>
+
+<https://www.jerney.io/secure-apis-kong-keycloak-1/>
