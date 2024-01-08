@@ -106,3 +106,5 @@ go get golang.org/x/crypto
 <https://ncarlier.gitbooks.io/oss-api-management/content/howto-kong_with_keycloak.html>
 
 <https://www.jerney.io/secure-apis-kong-keycloak-1/>
+
+<https://callistaenterprise.se/blogg/teknik/2023/04/20/kong-api-gateway-part1/>
