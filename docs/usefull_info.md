@@ -103,6 +103,9 @@ go get golang.org/x/crypto
 <https://kevalnagda.github.io/configure-nginx-and-keycloak-to-enable-sso-for-proxied-applications>
 <https://github.com/flavienbwk/nginx-keycloak?tab=readme-ov-file><<https://yasithev.medium.com/>
 
+* DOCKERFILE
+<https://habr.com/ru/companies/ruvds/articles/439980/>
+
 * NGINX and 0Auth 2.0
 <nginx-as-an-api-gateway-with-oauth-2-0-authorization-on-aws-4d7dbfe2a85b>
 
