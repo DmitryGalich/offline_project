@@ -99,12 +99,20 @@ go get golang.org/x/crypto
 
 <https://habr.com/ru/articles/779276/>
 
-<https://yasithev.medium.com/nginx-as-an-api-gateway-with-oauth-2-0-authorization-on-aws-4d7dbfe2a85b>
+* NGINX and keycloack
+<https://kevalnagda.github.io/configure-nginx-and-keycloak-to-enable-sso-for-proxied-applications>
+<https://github.com/flavienbwk/nginx-keycloak?tab=readme-ov-file><<https://yasithev.medium.com/>
+
+* NGINX and 0Auth 2.0
+<nginx-as-an-api-gateway-with-oauth-2-0-authorization-on-aws-4d7dbfe2a85b>
 
 <https://habr.com/ru/articles/650911/>
 
+* Keycloack and kong
+
 <https://ncarlier.gitbooks.io/oss-api-management/content/howto-kong_with_keycloak.html>
-
 <https://www.jerney.io/secure-apis-kong-keycloak-1/>
-
 <https://callistaenterprise.se/blogg/teknik/2023/04/20/kong-api-gateway-part1/>
+
+* Zero trust
+<https://medium.com/@krishnarajanarunachalam/securing-microservices-in-hyperscalers-a-zero-trust-approach-2f5a43aeb0fa>
