@@ -111,6 +111,9 @@ go get golang.org/x/crypto
 
 <https://habr.com/ru/articles/650911/>
 
+* Лекция об авторизации и авторизации
+<https://www.youtube.com/watch?v=dLt0ktv6Ca0>
+
 * Keycloack and kong
 
 <https://ncarlier.gitbooks.io/oss-api-management/content/howto-kong_with_keycloak.html>
