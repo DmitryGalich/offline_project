@@ -103,6 +103,12 @@ go get golang.org/x/crypto
 <https://kevalnagda.github.io/configure-nginx-and-keycloak-to-enable-sso-for-proxied-applications>
 <https://github.com/flavienbwk/nginx-keycloak?tab=readme-ov-file><<https://yasithev.medium.com/>
 
+* NGINX Big video
+<https://www.youtube.com/watch?v=NwijBVfiK_o>
+
+* NGINX nginx-jwt-module
+<https://github.com/max-lt/nginx-jwt-module>
+
 * DOCKERFILE
 <https://habr.com/ru/companies/ruvds/articles/439980/>
 
