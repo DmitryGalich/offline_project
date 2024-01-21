@@ -128,3 +128,9 @@ go get golang.org/x/crypto
 
 * Zero trust
 <https://medium.com/@krishnarajanarunachalam/securing-microservices-in-hyperscalers-a-zero-trust-approach-2f5a43aeb0fa>
+
+* nginx-keycloak 3 parts
+<https://joeeey.com/blog/selfhosting-sso-with-nginx-keycloak-part-1/>
+
+* https, nginx, keycloak
+<https://www.youtube.com/watch?v=Kv3hhuyrpXg&t=26s>
