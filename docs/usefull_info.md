@@ -134,3 +134,6 @@ go get golang.org/x/crypto
 
 * https, nginx, keycloak
 <https://www.youtube.com/watch?v=Kv3hhuyrpXg&t=26s>
+
+* certs for localhost:
+<https://letsencrypt.org/docs/certificates-for-localhost/>
