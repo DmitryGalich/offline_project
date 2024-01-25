@@ -14,8 +14,8 @@ services:
     image:
       nginx:1.23.3-alpine
     volumes:
-      - proxy/certs/*:/etc/nginx/ssl/localhost/
-      - proxy/config/localhost.conf /etc/nginx/nginx.conf
+      - /proxy/certs/*:/etc/nginx/ssl/localhost/
+      - /`proxy/config/localhost.conf /etc/nginx/nginx.conf
     ports:
       - "8080:80"
       - "8443:443"
@@ -52,12 +52,14 @@ services:
       - localnet
 
   keycloak_postgres:
+    container_name: 
+      keycloak_postgres
     image: 
       postgres:14.2
     command: 
       postgres -c 'max_connections=200'
     volumes:
-      - pgdata_keycloak_nginx_demo:/var/lib/postgresql/data
+      - offline_project_data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: keycloak
       POSTGRES_USER: keycloak
