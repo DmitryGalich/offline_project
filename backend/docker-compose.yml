@@ -1,7 +1,7 @@
 version: '3'
 
 networks:
-  keycloak_nginx_dev_network:
+  localnet:
     driver: bridge
 
 volumes:
@@ -33,7 +33,7 @@ services:
       postgres_keycloak_demo:
         condition: service_healthy
     networks:
-      - keycloak_nginx_dev_network
+      - localnet
 
   postgres_keycloak_demo:
     image: 
@@ -52,7 +52,7 @@ services:
     ports:
       - "5436:5432"
     networks:
-      - keycloak_nginx_dev_network
+      - localnet
 
   keycloak_nginx:
     build:
@@ -63,4 +63,4 @@ services:
     depends_on:
       - keycloak_demo
     networks:
-      - keycloak_nginx_dev_network
+      - localnet
