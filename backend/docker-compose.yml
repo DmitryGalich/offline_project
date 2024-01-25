@@ -5,12 +5,28 @@ networks:
     driver: bridge
 
 volumes:
-  pgdata_keycloak_nginx_demo:
+  offline_project_data:
 
 services:
-  keycloak_demo:
+  proxy:
     container_name: 
-      keycloak_demo
+      proxy
+    image:
+      nginx:1.23.3-alpine
+    volumes:
+      - proxy/certs/*:/etc/nginx/ssl/localhost/
+      - proxy/config/localhost.conf /etc/nginx/nginx.conf
+    ports:
+      - "8080:80"
+      - "8443:443"
+    depends_on:
+      - keycloak
+    networks:
+      - localnet
+
+  keycloak:
+    container_name: 
+      keycloak
     image: 
       keycloak/keycloak
     command: 
@@ -30,12 +46,12 @@ services:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
     depends_on:
-      postgres_keycloak_demo:
+      keycloak_postgres:
         condition: service_healthy
     networks:
       - localnet
 
-  postgres_keycloak_demo:
+  keycloak_postgres:
     image: 
       postgres:14.2
     command: 
@@ -51,16 +67,5 @@ services:
         "exit 0"
     ports:
       - "5436:5432"
-    networks:
-      - localnet
-
-  keycloak_nginx:
-    build:
-      ./nginx
-    ports:
-      - "8080:80"
-      - "8443:443"
-    depends_on:
-      - keycloak_demo
     networks:
       - localnet
