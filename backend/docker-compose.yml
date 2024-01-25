@@ -14,8 +14,8 @@ services:
     image:
       nginx:1.23.3-alpine
     volumes:
-      - /proxy/certs/*:/etc/nginx/ssl/localhost/
-      - /`proxy/config/localhost.conf /etc/nginx/nginx.conf
+      - ./proxy/certs/*:/etc/nginx/ssl/localhost/
+      - ./proxy/config/localhost.conf:/etc/nginx/nginx.conf
     ports:
       - "8080:80"
       - "8443:443"
