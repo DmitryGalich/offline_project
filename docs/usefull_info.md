@@ -137,3 +137,6 @@ go get golang.org/x/crypto
 
 * certs for localhost:
 <https://letsencrypt.org/docs/certificates-for-localhost/>
+
+* Go and Keycloak
+<https://mikebolshakov.medium.com/keycloak-with-go-web-services-why-not-f806c0bc820a>
