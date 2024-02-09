@@ -72,10 +72,11 @@ services:
 
   httpbin:
     container_name: httpbin
-    image: kennethreitz/httpbin
-    ports:
-      - 8080:80/tcp
+    image: 
+      kennethreitz/httpbin
     networks:
       - localnet
+    ports:
+      - 8080:80/tcp
     hostname:
       httpbin.kek.me
