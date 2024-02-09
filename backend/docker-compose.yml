@@ -19,8 +19,10 @@ services:
       --config /oauth2-proxy.cfg
     networks:
       - localnet
+    ports:
+      - 4180:4180/tcp
     hostname:
-      oauth2-proxy
+      oauth2-proxy.kek.me
 
   nginx:
     container_name:
@@ -49,6 +51,8 @@ services:
       - localnet
     ports:
       - 8080:8080
+    hostname:
+      keycloak.kek.me
 
   keycloak_postgres:
     container_name:
