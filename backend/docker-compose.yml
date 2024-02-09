@@ -50,7 +50,7 @@ services:
     networks:
       - localnet
     ports:
-      - 8080:8080
+      - 9080:9080
     hostname:
       keycloak.kek.me
 
@@ -69,3 +69,13 @@ services:
       - localnet
     ports:
       - "5436:5432"
+
+  httpbin:
+    container_name: httpbin
+    image: kennethreitz/httpbin
+    ports:
+      - 8080:80/tcp
+    networks:
+      httpbin:
+        aliases:
+          - httpbin.localtest.me
