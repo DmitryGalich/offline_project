@@ -78,4 +78,4 @@ services:
     networks:
       httpbin:
         aliases:
-          - httpbin.localtest.me
+          - httpbin.kek.me
