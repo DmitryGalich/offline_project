@@ -4,20 +4,23 @@ networks:
   localnet:
     driver: bridge
 
+volumes:
+  keycloak_postgres_volume:
+
 services:
-  # oauth2-proxy:
-  #   container_name:
-  #     oauth2-proxy
-  #   image:
-  #     quay.io/oauth2-proxy/oauth2-proxy:v7.5.1
-  #   volumes:
-  #     - ./oauth2_proxy/oauth2_proxy.cfg:/oauth2-proxy.cfg
-  #   command:
-  #     --config /oauth2-proxy.cfg
-  #   networks:
-  #     - localnet
-  #   hostname:
-  #     oauth2-proxy
+  oauth2-proxy:
+    container_name:
+      oauth2-proxy
+    image:
+      quay.io/oauth2-proxy/oauth2-proxy:v7.5.1
+    volumes:
+      - ./oauth2_proxy/oauth2_proxy.cfg:/oauth2-proxy.cfg
+    command:
+      --config /oauth2-proxy.cfg
+    networks:
+      - localnet
+    hostname:
+      oauth2-proxy
 
   nginx:
     container_name:
@@ -26,6 +29,8 @@ services:
       nginx:1.23.3-alpine
     volumes:
       - ./nginx/localhost.conf:/etc/nginx/nginx.conf
+    hostname: 
+      kek
     networks:
       - localnet
     ports:
@@ -46,21 +51,17 @@ services:
       - 8080:8080
 
   keycloak_postgres:
+    container_name:
+      keycloak_postgres
     image: 
       postgres:14.10-bullseye
-    command: postgres -c 'max_connections=200'
+    command: 
+      postgres -c 'max_connections=200'
     volumes:
-      - pgdata_keycloak_demo:/var/lib/postgresql/data
-    environment:
-      POSTGRES_DB: keycloak
-      POSTGRES_USER: keycloak
-      POSTGRES_PASSWORD: password
-    healthcheck:
-      test: "exit 0"
-    ports:
-      - "5436:5432"
+      - keycloak_postgres_volume:/var/lib/postgresql/data
+    env_file:
+      keycloak_postgres/.env
     networks:
       - localnet
-volumes:
-  keycloak_postgres:
-
+    ports:
+      - "5436:5432"
