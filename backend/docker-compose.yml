@@ -8,35 +8,35 @@ volumes:
   keycloak_postgres_volume:
 
 services:
-  oauth2-proxy:
-    container_name:
-      oauth2-proxy
-    image:
-      quay.io/oauth2-proxy/oauth2-proxy:v7.5.1
-    volumes:
-      - ./oauth2_proxy/oauth2_proxy.cfg:/oauth2-proxy.cfg
-    command:
-      --config /oauth2-proxy.cfg
-    networks:
-      - localnet
-    ports:
-      - 4180:4180/tcp
-    hostname:
-      oauth2-proxy.kek.me
+  # oauth2-proxy:
+  #   container_name:
+  #     oauth2-proxy
+  #   image:
+  #     quay.io/oauth2-proxy/oauth2-proxy:v7.5.1
+  #   volumes:
+  #     - ./oauth2_proxy/oauth2_proxy.cfg:/oauth2-proxy.cfg
+  #   command:
+  #     --config /oauth2-proxy.cfg
+  #   networks:
+  #     - localnet
+  #   ports:
+  #     - 4180:4180/tcp
+  #   hostname:
+  #     oauth2-proxy.kek.me
 
-  nginx:
-    container_name:
-      nginx
-    image:
-      nginx:1.23.3-alpine
-    volumes:
-      - ./nginx/localhost.conf:/etc/nginx/nginx.conf
-    hostname: 
-      kek
-    networks:
-      - localnet
-    ports:
-      - 80:80
+  # nginx:
+  #   container_name:
+  #     nginx
+  #   image:
+  #     nginx:1.23.3-alpine
+  #   volumes:
+  #     - ./nginx/localhost.conf:/etc/nginx/nginx.conf
+  #   hostname: 
+  #     kek
+  #   networks:
+  #     - localnet
+  #   ports:
+  #     - 80:80
 
   keycloak:
     container_name:
