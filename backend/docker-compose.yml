@@ -76,6 +76,6 @@ services:
     ports:
       - 8080:80/tcp
     networks:
-      httpbin:
-        aliases:
-          - httpbin.kek.me
+      - localnet
+    hostname:
+      httpbin.kek.me
