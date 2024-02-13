@@ -8,35 +8,35 @@ volumes:
   keycloak_postgres_volume:
 
 services:
-  oauth2-proxy:
-    container_name:
-      oauth2-proxy
-    image:
-      quay.io/oauth2-proxy/oauth2-proxy:v7.5.1
-    volumes:
-      - ./oauth2_proxy/oauth2_proxy.cfg:/oauth2-proxy.cfg
-    command:
-      --config /oauth2-proxy.cfg
-    networks:
-      - localnet
-    ports:
-      - 4180:4180/tcp
-    hostname:
-      oauth2-proxy.kek.me
+#   # oauth2-proxy:
+#   #   container_name:
+#   #     oauth2-proxy
+#   #   image:
+#   #     quay.io/oauth2-proxy/oauth2-proxy:v7.5.1
+#   #   volumes:
+#   #     - ./oauth2_proxy/oauth2_proxy.cfg:/oauth2-proxy.cfg
+#   #   command:
+#   #     --config /oauth2-proxy.cfg
+#   #   networks:
+#   #     - localnet
+#   #   ports:
+#   #     - "4180:4180"
+#   #   # hostname:
+#   #   #   oauth2-proxy.kek.me
 
-  nginx:
-    container_name:
-      nginx
-    image:
-      nginx:1.23.3-alpine
-    volumes:
-      - ./nginx/localhost.conf:/etc/nginx/nginx.conf
-    hostname: 
-      kek
-    networks:
-      - localnet
-    ports:
-      - 80:80
+#   # nginx:
+#   #   container_name:
+#   #     nginx
+#   #   image:
+#   #     nginx:1.23.3-alpine
+#   #   volumes:
+#   #     - ./nginx/localhost.conf:/etc/nginx/nginx.conf
+#   #   hostname: 
+#   #     kek
+#   #   networks:
+#   #     - localnet
+#   #   ports:
+#   #     - "80:80"
 
   keycloak:
     container_name:
@@ -50,9 +50,10 @@ services:
     networks:
       - localnet
     ports:
-      - 9080:9080
-    hostname:
-      keycloak.kek.me
+      - "8890:8080"
+    depends_on:
+      keycloak_postgres:
+        condition: service_healthy
 
   keycloak_postgres:
     container_name:
@@ -68,15 +69,62 @@ services:
     networks:
       - localnet
     ports:
-      - "5436:5432"
+      - "5432:5432"
+    healthcheck:
+      test: "exit 0"
 
-  httpbin:
-    container_name: httpbin
-    image: 
-      kennethreitz/httpbin
-    networks:
-      - localnet
-    ports:
-      - 8080:80/tcp
-    hostname:
-      httpbin.kek.me
+  # httpbin:
+  #   container_name: httpbin
+  #   image: 
+  #     kennethreitz/httpbin
+  #   networks:
+  #     - localnet
+  #   ports:
+  #     - "8080:80"
+  #   # hostname:
+  #   #   httpbin.kek.me
+
+# ===================
+
+# services:
+#   keycloak_demo:
+#     image: keycloak/keycloak
+#     command: start-dev
+#     environment:
+#       KC_DB: postgres
+#       KC_DB_URL_HOST: postgres_keycloak_demo
+#       KC_DB_URL_DATABASE: keycloak
+#       KC_DB_PASSWORD: password
+#       KC_DB_USERNAME: keycloak
+#       KC_DB_SCHEMA: public
+#       KEYCLOAK_ADMIN: admin
+#       KEYCLOAK_ADMIN_PASSWORD: admin
+#     ports:
+#       - "8890:8080"
+#     depends_on:
+#       postgres_keycloak_demo:
+#         condition: service_healthy
+#     networks:
+#       - keycloak_demo_dev_network
+  
+#   postgres_keycloak_demo:
+#     image: postgres:14.10-bullseye
+#     command: postgres -c 'max_connections=200'
+#     volumes:
+#       - pgdata_keycloak_demo:/var/lib/postgresql/data
+#     environment:
+#       POSTGRES_DB: keycloak
+#       POSTGRES_USER: keycloak
+#       POSTGRES_PASSWORD: password
+#     healthcheck:
+#       test: "exit 0"
+#     ports:
+#       - "5436:5432"
+#     networks:
+#       - keycloak_demo_dev_network
+# volumes:
+#     pgdata_keycloak_demo:
+
+# networks:
+#     keycloak_demo_dev_network:
+#       driver: bridge
