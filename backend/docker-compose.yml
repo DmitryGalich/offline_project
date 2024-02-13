@@ -8,35 +8,37 @@ volumes:
   keycloak_postgres_volume:
 
 services:
-#   # oauth2-proxy:
-#   #   container_name:
-#   #     oauth2-proxy
-#   #   image:
-#   #     quay.io/oauth2-proxy/oauth2-proxy:v7.5.1
-#   #   volumes:
-#   #     - ./oauth2_proxy/oauth2_proxy.cfg:/oauth2-proxy.cfg
-#   #   command:
-#   #     --config /oauth2-proxy.cfg
-#   #   networks:
-#   #     - localnet
-#   #   ports:
-#   #     - "4180:4180"
-#   #   # hostname:
-#   #   #   oauth2-proxy.kek.me
-
-#   # nginx:
-#   #   container_name:
-#   #     nginx
-#   #   image:
-#   #     nginx:1.23.3-alpine
-#   #   volumes:
-#   #     - ./nginx/localhost.conf:/etc/nginx/nginx.conf
-#   #   hostname: 
-#   #     kek
-#   #   networks:
-#   #     - localnet
-#   #   ports:
-#   #     - "80:80"
+  oauth2-proxy:
+    container_name:
+      oauth2-proxy
+    image:
+      quay.io/oauth2-proxy/oauth2-proxy:v7.5.1
+    volumes:
+      - ./oauth2_proxy/oauth2_proxy.cfg:/oauth2-proxy.cfg
+    command:
+      --config /oauth2-proxy.cfg
+    networks:
+      - localnet
+    ports:
+      - "4180:4180"
+    # hostname:
+    #   oauth2-proxy.kek.me
+    depends_on:
+      keycloak:
+        condition: service_healthy
+  nginx:
+    container_name:
+      nginx
+    image:
+      nginx:1.23.3-alpine
+    volumes:
+      - ./nginx/localhost.conf:/etc/nginx/nginx.conf
+    hostname: 
+      kek
+    networks:
+      - localnet
+    ports:
+      - "80:80"
 
   keycloak:
     container_name:
@@ -44,9 +46,11 @@ services:
     image:
       keycloak/keycloak
     command:
-      start-dev
+      start-dev --import-realm
     env_file:
       keycloak/.env
+    volumes:
+      - ./keycloak/realm:/opt/keycloak/data/import
     networks:
       - localnet
     ports:
@@ -73,16 +77,16 @@ services:
     healthcheck:
       test: "exit 0"
 
-  # httpbin:
-  #   container_name: httpbin
-  #   image: 
-  #     kennethreitz/httpbin
-  #   networks:
-  #     - localnet
-  #   ports:
-  #     - "8080:80"
-  #   # hostname:
-  #   #   httpbin.kek.me
+  httpbin:
+    container_name: httpbin
+    image: 
+      kennethreitz/httpbin
+    networks:
+      - localnet
+    ports:
+      - "8080:80"
+    # hostname:
+    #   httpbin.kek.me
 
 # ===================
 
