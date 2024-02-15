@@ -23,9 +23,10 @@ services:
       - "4180:4180"
     # hostname:
     #   oauth2-proxy.kek.me
-    depends_on:
-      keycloak:
-        condition: service_healthy
+    # depends_on:
+    #   keycloak:
+    #     condition: service_healthy
+
   nginx:
     container_name:
       nginx
@@ -46,7 +47,8 @@ services:
     image:
       keycloak/keycloak
     command:
-      start-dev --import-realm
+      start-dev     
+# --import-realm
     env_file:
       keycloak/.env
     volumes:
@@ -54,7 +56,7 @@ services:
     networks:
       - localnet
     ports:
-      - "8890:8080"
+      - "8081:8080"
     depends_on:
       keycloak_postgres:
         condition: service_healthy
@@ -77,16 +79,16 @@ services:
     healthcheck:
       test: "exit 0"
 
-  httpbin:
-    container_name: httpbin
-    image: 
-      kennethreitz/httpbin
-    networks:
-      - localnet
-    ports:
-      - "8080:80"
-    # hostname:
-    #   httpbin.kek.me
+  # httpbin:
+  #   container_name: httpbin
+  #   image: 
+  #     kennethreitz/httpbin
+  #   networks:
+  #     - localnet
+  #   ports:
+  #     - "8080:80"
+  #   # hostname:
+  #   #   httpbin.kek.me
 
 # ===================
 
