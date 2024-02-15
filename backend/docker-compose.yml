@@ -37,7 +37,7 @@ services:
       - ./nginx/certs/localhost/localhost.crt:/etc/nginx/ssl/localhost/localhost.crt
       - ./nginx/certs/localhost/localhost.key:/etc/nginx/ssl/localhost/localhost.key
     hostname: 
-      kek
+      nginx
     networks:
       - localnet
     ports:
