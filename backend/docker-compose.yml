@@ -8,79 +8,78 @@ volumes:
   keycloak_postgres_volume:
 
 services:
-  # oauth2-proxy:
-  #   container_name:
-  #     oauth2-proxy
-  #   image:
-  #     quay.io/oauth2-proxy/oauth2-proxy:v7.5.1
-  #   volumes:
-  #     - ./oauth2_proxy/oauth2_proxy.cfg:/oauth2-proxy.cfg
-  #   command:
-  #     --config /oauth2-proxy.cfg
-  #   networks:
-  #     - localnet
-  #   ports:
-  #     - "4180:4180"
-  #   # hostname:
-  #   #   oauth2-proxy.kek.me
-  #   # depends_on:
-  #   #   keycloak:
-  #   #     condition: service_healthy
-
-  nginx:
+  oauth2-proxy:
     container_name:
-      nginx
+      oauth2-proxy
     image:
-      nginx:1.23.3-alpine
+      quay.io/oauth2-proxy/oauth2-proxy:v7.5.1
     volumes:
-      - ./nginx/localhost.conf:/etc/nginx/nginx.conf
-      - ./nginx/certs/localhost/localhost.crt:/etc/nginx/ssl/localhost/localhost.crt
-      - ./nginx/certs/localhost/localhost.key:/etc/nginx/ssl/localhost/localhost.key
-    hostname: 
-      nginx
+      - ./oauth2_proxy/oauth2_proxy.cfg:/oauth2-proxy.cfg
+    command:
+      --config /oauth2-proxy.cfg
     networks:
       - localnet
     ports:
-      - "80:80"
-      - "443:443"
+      - "4180:4180"
+    # hostname:
+    #   oauth2-proxy.kek.me
+    # depends_on:
+    #   keycloak:
+    #     condition: service_healthy
 
-#   keycloak:
-#     container_name:
-#       keycloak
-#     image:
-#       keycloak/keycloak
-#     command:
-#       start-dev     
-# # --import-realm
-#     env_file:
-#       keycloak/.env
-#     volumes:
-#       - ./keycloak/realm:/opt/keycloak/data/import
-#     networks:
-#       - localnet
-#     ports:
-#       - "8081:8080"
-#     depends_on:
-#       keycloak_postgres:
-#         condition: service_healthy
+  # nginx:
+  #   container_name:
+  #     nginx
+  #   image:
+  #     nginx:1.23.3-alpine
+  #   volumes:
+  #     - ./nginx/localhost.conf:/etc/nginx/nginx.conf
+  #     - ./nginx/certs/localhost/localhost.crt:/etc/nginx/ssl/localhost/localhost.crt
+  #     - ./nginx/certs/localhost/localhost.key:/etc/nginx/ssl/localhost/localhost.key
+  #   hostname: 
+  #     nginx
+  #   networks:
+  #     - localnet
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
 
-#   keycloak_postgres:
-#     container_name:
-#       keycloak_postgres
-#     image: 
-#       postgres:14.10-bullseye
-#     command: 
-#       postgres -c 'max_connections=200'
-#     volumes:
-#       - keycloak_postgres_volume:/var/lib/postgresql/data
-#     env_file:
-#       keycloak_postgres/.env
-#     networks:
-#       - localnet
-#     ports:
-#       - "5432:5432"
-#     healthcheck:
-#       test: "exit 0"
+  keycloak:
+    container_name:
+      keycloak
+    image:
+      keycloak/keycloak
+    command:
+      start-dev --import-realm
+    env_file:
+      keycloak/.env
+    volumes:
+      - ./keycloak/realm:/opt/keycloak/data/import
+    networks:
+      - localnet
+    ports:
+      - "8081:8080"
+    depends_on:
+      keycloak_postgres:
+        condition: service_healthy
+
+  keycloak_postgres:
+    container_name:
+      keycloak_postgres
+    image: 
+      postgres:14.10-bullseye
+    command: 
+      postgres -c 'max_connections=200'
+    volumes:
+      - keycloak_postgres_volume:/var/lib/postgresql/data
+    env_file:
+      keycloak_postgres/.env
+    networks:
+      - localnet
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: "exit 0"
 
   # httpbin:
   #   container_name: httpbin
@@ -92,48 +91,3 @@ services:
   #     - "8080:80"
   #   # hostname:
   #   #   httpbin.kek.me
-
-# ===================
-
-# services:
-#   keycloak_demo:
-#     image: keycloak/keycloak
-#     command: start-dev
-#     environment:
-#       KC_DB: postgres
-#       KC_DB_URL_HOST: postgres_keycloak_demo
-#       KC_DB_URL_DATABASE: keycloak
-#       KC_DB_PASSWORD: password
-#       KC_DB_USERNAME: keycloak
-#       KC_DB_SCHEMA: public
-#       KEYCLOAK_ADMIN: admin
-#       KEYCLOAK_ADMIN_PASSWORD: admin
-#     ports:
-#       - "8890:8080"
-#     depends_on:
-#       postgres_keycloak_demo:
-#         condition: service_healthy
-#     networks:
-#       - keycloak_demo_dev_network
-  
-#   postgres_keycloak_demo:
-#     image: postgres:14.10-bullseye
-#     command: postgres -c 'max_connections=200'
-#     volumes:
-#       - pgdata_keycloak_demo:/var/lib/postgresql/data
-#     environment:
-#       POSTGRES_DB: keycloak
-#       POSTGRES_USER: keycloak
-#       POSTGRES_PASSWORD: password
-#     healthcheck:
-#       test: "exit 0"
-#     ports:
-#       - "5436:5432"
-#     networks:
-#       - keycloak_demo_dev_network
-# volumes:
-#     pgdata_keycloak_demo:
-
-# networks:
-#     keycloak_demo_dev_network:
-#       driver: bridge
