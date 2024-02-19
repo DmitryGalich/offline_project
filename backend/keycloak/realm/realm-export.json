@@ -673,7 +673,7 @@
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
-      "clientAuthenticatorType": "client-secret",
+      "clientAuthenticatorType": "client-secret-jwt",
       "secret": "**********",
       "redirectUris": [
         "http://localhost:4180/oauth2/callback"
@@ -692,13 +692,20 @@
       "frontchannelLogout": true,
       "protocol": "openid-connect",
       "attributes": {
-        "oidc.ciba.grant.enabled": "false",
         "client.secret.creation.time": "1708357810",
-        "backchannel.logout.session.required": "true",
+        "token.endpoint.auth.signing.alg": "HS512",
         "post.logout.redirect.uris": "+",
-        "display.on.consent.screen": "false",
         "oauth2.device.authorization.grant.enabled": "false",
-        "backchannel.logout.revoke.offline.tokens": "false"
+        "backchannel.logout.revoke.offline.tokens": "false",
+        "use.refresh.tokens": "true",
+        "oidc.ciba.grant.enabled": "false",
+        "backchannel.logout.session.required": "true",
+        "client_credentials.use_refresh_token": "false",
+        "acr.loa.map": "{}",
+        "require.pushed.authorization.requests": "false",
+        "tls.client.certificate.bound.access.tokens": "false",
+        "display.on.consent.screen": "false",
+        "token.response.type.bearer.lower-case": "false"
       },
       "authenticationFlowBindingOverrides": {},
       "fullScopeAllowed": true,
