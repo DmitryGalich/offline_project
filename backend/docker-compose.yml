@@ -23,9 +23,9 @@ services:
       - localnet
     ports:
       - "4180:4180"
-    depends_on:
-      keycloak:
-        condition: service_healthy
+    # depends_on:
+    #   keycloak:
+    #     condition: service_healthy
 
   # nginx:
   #   container_name:
