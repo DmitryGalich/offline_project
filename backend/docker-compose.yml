@@ -25,10 +25,7 @@ services:
       - "4180:4180"
     depends_on:
       keycloak:
-        condition: service_healthy    
-    # hostname:
-    #   oauth2-proxy.kek.me
-
+        condition: service_healthy
 
   # nginx:
   #   container_name:
@@ -39,8 +36,6 @@ services:
   #     - ./nginx/localhost.conf:/etc/nginx/nginx.conf
   #     - ./nginx/certs/localhost/localhost.crt:/etc/nginx/ssl/localhost/localhost.crt
   #     - ./nginx/certs/localhost/localhost.key:/etc/nginx/ssl/localhost/localhost.key
-  #   hostname: 
-  #     nginx
   #   networks:
   #     - localnet
   #   ports:
@@ -66,11 +61,11 @@ services:
       keycloak_postgres:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://0.0.0.0:8080/realms/offline-project"]
-      start_period: 10s
-      interval: 30s
-      retries: 3
+      test: curl --head -fsS http://localhost:8081/health/live
+      interval: 10s
       timeout: 5s
+      retries: 10
+      start_period: 5s
 
   keycloak_postgres:
     container_name:
