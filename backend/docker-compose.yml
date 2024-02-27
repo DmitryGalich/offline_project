@@ -1,9 +1,7 @@
 version: '3'
 
 networks:
-  keycloak-net:
-    driver: bridge
-  oauth2proxy-net:
+  localnet:
     driver: bridge
 
 volumes:
@@ -22,12 +20,9 @@ services:
     command:
       --config /oauth2proxy.cfg
     networks:
-      - oauth2proxy-net
+      - localnet
     ports:
       - "4180:4180"
-    depends_on:
-      keycloak:
-        condition: service_healthy
 
   # nginx:
   #   container_name:
@@ -39,10 +34,20 @@ services:
   #     - ./nginx/certs/localhost/localhost.crt:/etc/nginx/ssl/localhost/localhost.crt
   #     - ./nginx/certs/localhost/localhost.key:/etc/nginx/ssl/localhost/localhost.key
   #   networks:
-  #     - keycloaknet
+  #     - localnet
   #   ports:
   #     - "80:80"
   #     - "443:443"
+
+  nginx:
+    container_name:
+      nginx
+    image:
+      nginx:1.23.3-alpine
+    networks:
+      - localnet
+    ports:
+      - "81:80"
 
   keycloak:
     container_name:
@@ -56,17 +61,17 @@ services:
     volumes:
       - ./keycloak/realm:/opt/keycloak/data/import
     networks:
-      - keycloak-net
-      - oauth2proxy-net
+      - localnet
     ports:
-      - "8081:8080"
-    hostname: 
-      keycloak
+      - "8080:8080"
     depends_on:
       keycloak_postgres:
         condition: service_healthy
+    hostname: 
+      keycloak
     healthcheck:
-      test: curl --head -fsS http://localhost:8080/health/live
+      test: curl http://localhost:8080/health/live
+      # test: ["CMD", "curl", "--head", "-fsS", "http://keycloak:8080/health"]
       interval: 10s
       timeout: 5s
       retries: 10
@@ -84,7 +89,7 @@ services:
     env_file:
       keycloak_postgres/.env
     networks:
-      - keycloak-net
+      - localnet
     ports:
       - "5432:5432"
     healthcheck:
