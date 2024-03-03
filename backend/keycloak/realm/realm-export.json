@@ -694,7 +694,7 @@
       "frontchannelLogout": true,
       "protocol": "openid-connect",
       "attributes": {
-        "client.secret.creation.time": "1709455554",
+        "client.secret.creation.time": "1709487376",
         "token.endpoint.auth.signing.alg": "HS512",
         "post.logout.redirect.uris": "+",
         "oauth2.device.authorization.grant.enabled": "false",
