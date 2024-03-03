@@ -1,6 +1,6 @@
 {
   "id": "972ebf38-0174-40e8-ba0c-2487562f342b",
-  "realm": "offline-project",
+  "realm": "offline-project-realm",
   "displayName": "",
   "displayNameHtml": "",
   "notBefore": 0,
@@ -490,13 +490,13 @@
       "clientId": "account",
       "name": "${client_account}",
       "rootUrl": "${authBaseUrl}",
-      "baseUrl": "/realms/offline-project/account/",
+      "baseUrl": "/realms/offline-project-realm/account/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/realms/offline-project/account/*"
+        "/realms/offline-project-realm/account/*"
       ],
       "webOrigins": [],
       "notBefore": 0,
@@ -534,13 +534,13 @@
       "clientId": "account-console",
       "name": "${client_account-console}",
       "rootUrl": "${authBaseUrl}",
-      "baseUrl": "/realms/offline-project/account/",
+      "baseUrl": "/realms/offline-project-realm/account/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/realms/offline-project/account/*"
+        "/realms/offline-project-realm/account/*"
       ],
       "webOrigins": [],
       "notBefore": 0,
@@ -694,7 +694,7 @@
       "frontchannelLogout": true,
       "protocol": "openid-connect",
       "attributes": {
-        "client.secret.creation.time": "1709053617",
+        "client.secret.creation.time": "1709455554",
         "token.endpoint.auth.signing.alg": "HS512",
         "post.logout.redirect.uris": "+",
         "oauth2.device.authorization.grant.enabled": "false",
@@ -707,6 +707,7 @@
         "require.pushed.authorization.requests": "false",
         "tls.client.certificate.bound.access.tokens": "false",
         "display.on.consent.screen": "false",
+        "pkce.code.challenge.method": "S256",
         "token.response.type.bearer.lower-case": "false"
       },
       "authenticationFlowBindingOverrides": {},
@@ -821,13 +822,13 @@
       "clientId": "security-admin-console",
       "name": "${client_security-admin-console}",
       "rootUrl": "${authAdminUrl}",
-      "baseUrl": "/admin/offline-project/console/",
+      "baseUrl": "/admin/offline-project-realm/console/",
       "surrogateAuthRequired": false,
       "enabled": true,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "/admin/offline-project/console/*"
+        "/admin/offline-project-realm/console/*"
       ],
       "webOrigins": [
         "+"
@@ -1530,14 +1531,14 @@
         "subComponents": {},
         "config": {
           "allowed-protocol-mapper-types": [
-            "oidc-full-name-mapper",
-            "saml-user-property-mapper",
-            "oidc-usermodel-property-mapper",
+            "saml-role-list-mapper",
+            "oidc-sha256-pairwise-sub-mapper",
             "saml-user-attribute-mapper",
             "oidc-usermodel-attribute-mapper",
-            "saml-role-list-mapper",
             "oidc-address-mapper",
-            "oidc-sha256-pairwise-sub-mapper"
+            "oidc-full-name-mapper",
+            "saml-user-property-mapper",
+            "oidc-usermodel-property-mapper"
           ]
         }
       },
@@ -1549,14 +1550,14 @@
         "subComponents": {},
         "config": {
           "allowed-protocol-mapper-types": [
-            "oidc-sha256-pairwise-sub-mapper",
-            "oidc-usermodel-property-mapper",
-            "oidc-full-name-mapper",
-            "saml-user-attribute-mapper",
+            "oidc-address-mapper",
             "saml-user-property-mapper",
-            "oidc-usermodel-attribute-mapper",
+            "oidc-usermodel-property-mapper",
+            "saml-user-attribute-mapper",
+            "oidc-full-name-mapper",
             "saml-role-list-mapper",
-            "oidc-address-mapper"
+            "oidc-usermodel-attribute-mapper",
+            "oidc-sha256-pairwise-sub-mapper"
           ]
         }
       },
@@ -1894,7 +1895,7 @@
         {
           "authenticator": "client-secret",
           "authenticatorFlow": false,
-          "requirement": "ALTERNATIVE",
+          "requirement": "REQUIRED",
           "priority": 10,
           "autheticatorFlow": false,
           "userSetupAllowed": false
