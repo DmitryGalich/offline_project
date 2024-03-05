@@ -29,7 +29,9 @@ services:
     image:
       nginx:1.23.3-alpine
     networks:
-      localnet: {}
+      localnet:         
+        aliases:
+          - upstream.localtest.me
     ports:
       - "81:80"
 
