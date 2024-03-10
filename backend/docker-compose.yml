@@ -1,7 +1,8 @@
 version: '3'
+name: offline_project
 
 networks:
-  localnet:
+  chats_network:
     driver: bridge
 
 services:
@@ -13,8 +14,19 @@ services:
     volumes:
       - ./gateway/gateway.conf:/etc/nginx/nginx.conf
     networks:
-      localnet:         
+      chats_network:         
         aliases:
           - gateway.localtest.me
     ports:
-      - "80:80"
+      - "8080:80"
+
+  chats:
+    container_name:
+      chats
+    image: 
+      # golang:1.22
+      nginx:1.23.3-alpine
+    volumes:
+      - ./chats/chats.conf:/etc/nginx/nginx.conf
+    networks:
+      - chats_network
