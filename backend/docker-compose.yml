@@ -20,10 +20,12 @@ services:
     ports:
       - "8080:80"
 
-  chats:
+  chats_service:
     container_name:
-      chats
+      chats_service
     image: 
       golang:1.22
+    volumes:
+      - ./chats_service:/home/offline_project/chats
     networks:
       - chats_network
