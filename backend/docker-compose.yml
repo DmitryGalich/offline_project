@@ -24,9 +24,6 @@ services:
     container_name:
       chats
     image: 
-      # golang:1.22
-      nginx:1.23.3-alpine
-    volumes:
-      - ./chats/chats.conf:/etc/nginx/nginx.conf
+      golang:1.22
     networks:
       - chats_network
