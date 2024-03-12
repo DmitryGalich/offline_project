@@ -1,14 +1,11 @@
 FROM golang:1.22
 
+ADD . /offline_project
 
-ADD . /home
-
-WORKDIR /home
-
-CMD ["go","run","cmd/main.go"]
-
-# RUN go build cmd/
-# RUN ./cmd/main
+WORKDIR /offline_project
 
 # Debugger
-# RUN go install -v github.com/go-delve/delve/cmd/dlv@v1.22.1
+RUN go install -v github.com/go-delve/delve/cmd/dlv@v1.22.1
+
+# Starting point
+CMD ["go","run","cmd/main.go"]
