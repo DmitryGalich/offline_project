@@ -7,10 +7,8 @@ networks:
 
 services:
   gateway:
-    container_name:
-      gateway
-    image:
-      nginx:1.23.3-alpine
+    container_name: gateway
+    image: nginx:1.23.3-alpine
     volumes:
       - ./gateway/gateway.conf:/etc/nginx/nginx.conf
     networks:
@@ -21,11 +19,11 @@ services:
       - "8080:80"
 
   chats_service:
-    container_name:
-      chats_service
-    image: 
-      golang:1.22
-    volumes:
-      - ./chats_service:/home/offline_project/chats
+    container_name: chats_service
+    build:
+      context: .
+      dockerfile: chats_service/Dockerfile
     networks:
       - chats_network
+    ports:
+      - "80:80"
