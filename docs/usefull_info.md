@@ -47,6 +47,7 @@
 * Project structure <https://github.com/golang-standards/project-layout/blob/master/README_ru.md>
 * Awesome Go <https://github.com/avelino/awesome-go>
 * JWT POSTGRES GO <https://www.youtube.com/watch?v=ma7rUS_vW9M>
+* GO tutorials <https://github.com/TutorialEdge/Go/>
 
 for vscode
   gotests
