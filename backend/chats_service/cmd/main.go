@@ -1,8 +1,11 @@
 package main
 
 import (
+	"io"
+	"net/http"
 	"os"
 
+	"github.com/gorilla/websocket"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -19,7 +22,9 @@ func initLogger() (file *os.File) {
 	}
 	file, err = os.Create(filePath)
 	if err == nil {
-		log.SetOutput(file)
+		// Create a MultiWriter to write logs to both console and file
+		multiWriter := io.MultiWriter(os.Stdout, file)
+		log.SetOutput(multiWriter)
 	} else {
 		log.Fatalf("Failed to create log file: %v", err)
 	}
@@ -27,61 +32,63 @@ func initLogger() (file *os.File) {
 	return file
 }
 
-// var upgrader = websocket.Upgrader{
-// 	ReadBufferSize:  1024,
-// 	WriteBufferSize: 1024,
-// }
+func getEntryPointAddress() string {
+	entryPointAddress := os.ExpandEnv("${ENTRYPOINT_ADDRESS}:${ENTRYPOINT_PORT}")
+	if entryPointAddress == "" {
+		entryPointAddress = ":80"
+	}
 
-// func getEntryPointAddress() string {
-// 	entryPointAddress := os.ExpandEnv("${ENTRYPOINT_ADDRESS}:${ENTRYPOINT_PORT}")
-// 	if entryPointAddress == "" {
-// 		entryPointAddress = ":80"
-// 	}
+	return entryPointAddress
+}
 
-// 	return entryPointAddress
-// }
+var upgrader = websocket.Upgrader{
+	ReadBufferSize:  1024,
+	WriteBufferSize: 1024,
+}
 
 // func home(w http.ResponseWriter, r *http.Request) {
-// 	// fmt.Fprintf(w, "Chats service - Home page")
+// 	fmt.Fprintf(w, "Chats service - Home page")
 // }
 
-// func websockets(w http.ResponseWriter, r *http.Request) {
-// 	conn, err := upgrader.Upgrade(w, r, nil)
-// 	if err != nil {
-// 		http.Error(w, "Could not open websocket connection", http.StatusBadRequest)
-// 		return
-// 	}
-// 	defer conn.Close()
+func home(w http.ResponseWriter, r *http.Request) {
+	log.Info("Getting request")
 
-// 	for {
-// 		messageType, message, err := conn.ReadMessage()
-// 		if err != nil {
-// 			// fmt.Println("Error reading message:", err)
-// 			return
-// 		}
+	conn, err := upgrader.Upgrade(w, r, nil)
+	if err != nil {
+		http.Error(w, "Could not open websocket connection", http.StatusBadRequest)
+		return
+	}
+	defer conn.Close()
 
-// 		// fmt.Printf("Received message: %s\n", message)
+	log.Info("Upgraded")
 
-// 		// Echo back the received message
-// 		err = conn.WriteMessage(messageType, message)
-// 		if err != nil {
-// 			// fmt.Println("Error echoing message:", err)
-// 			return
-// 		}
-// 	}
-// }
+	for {
+		messageType, message, err := conn.ReadMessage()
+		if err != nil {
+			log.Error("Error reading message:", err)
+			return
+		}
+
+		log.Info("Received message: ", message)
+
+		err = conn.WriteMessage(messageType, message)
+		if err != nil {
+			log.Error("Error echoing message:", err)
+			return
+		}
+	}
+}
 
 func main() {
 	logFile := initLogger()
 	defer logFile.Close()
 
-	log.Info("LEL")
+	entryPointAddress := getEntryPointAddress()
+	log.Info("Starting server at (" + entryPointAddress + ")")
 
-	// entryPointAddress := getEntryPointAddress()
-	// log..Println("Starting server at: \"" + entryPointAddress + "\"")
+	http.HandleFunc("/", home)
 
-	// http.HandleFunc("/", home)
-	// http.HandleFunc("/ws", websockets)
-	// log "github.com/sirupsen/logrus"
-
+	if err := http.ListenAndServe(entryPointAddress, nil); err != nil {
+		log.Panic("Can't start server at (" + entryPointAddress + ")")
+	}
 }
