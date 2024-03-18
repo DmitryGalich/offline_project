@@ -20,6 +20,19 @@ func initLogger() (file *os.File) {
 		log.Fatalf("Failed to create log directory: %v", err)
 		return nil
 	}
+
+	if _, err := os.Stat(filePath); err == nil {
+		log.Info("Removing old log file...")
+
+		err = os.Remove(filePath)
+		if err != nil {
+			log.Fatalf("Failed to remove old log file: %v", err)
+			return nil
+		}
+
+		log.Info("Old log file removed")
+	}
+
 	file, err = os.Create(filePath)
 	if err == nil {
 		// Create a MultiWriter to write logs to both console and file

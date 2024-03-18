@@ -18,6 +18,9 @@ services:
     ports:
       - "8080:80"
 
+  gatekeeper:
+    image: quay.io/gogatekeeper/gatekeeper:1.1.0
+
   chats_service:
     container_name: chats_service
     build:
