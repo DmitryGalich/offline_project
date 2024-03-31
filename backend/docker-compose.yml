@@ -20,15 +20,4 @@ services:
           - gateway.localtest.me
     ports:
       - "80:80"
-      
-  chats_service:
-    container_name: chats_service
-    build:
-      context: .
-      dockerfile: chats_service/Dockerfile
-    environment:
-      - ENTRYPOINT_ADDRESS=
-      - ENTRYPOINT_PORT=80
-    networks:
-      - local_network
 
