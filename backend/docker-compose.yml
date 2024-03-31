@@ -20,7 +20,7 @@ services:
           - gateway.localtest.me
     ports:
       - "80:80"
-
+      
   chats_service:
     container_name: chats_service
     build:
