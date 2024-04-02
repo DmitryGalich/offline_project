@@ -28,3 +28,5 @@ services:
       dockerfile: service_chats/Dockerfile
     networks:
       - gateway_network
+    ports:
+      - "80:80"

@@ -13,6 +13,7 @@ COPY service_chats/cmd ./cmd
 
 RUN go get service_chats/cmd
 
+COPY service_chats/cmd ./cmd
 RUN go build -o main ./cmd
 
 EXPOSE 80
