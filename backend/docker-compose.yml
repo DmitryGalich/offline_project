@@ -2,7 +2,7 @@ version: '3'
 name: offline_project
 
 networks:
-  chats_network:
+  gateway_network:
     driver: bridge
 
 services:
@@ -12,18 +12,18 @@ services:
     volumes:
       - ./gateway/gateway.conf:/etc/nginx/nginx.conf
     networks:
-      chats_network:         
+      gateway_network:         
         aliases:
           - gateway.localtest.me
     ports:
       - "8080:80"
 
-  chats_service:
-    container_name: chats_service
+  service_chats:
+    container_name: service_chats
     build:
       context: .
-      dockerfile: chats_service/Dockerfile
+      dockerfile: service_chats/Dockerfile
     networks:
-      - chats_network
+      - gateway_network
     ports:
       - "80:80"
