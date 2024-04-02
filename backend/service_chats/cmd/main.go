@@ -4,6 +4,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"fmt"
 
 	"github.com/gorilla/websocket"
 	log "github.com/sirupsen/logrus"
@@ -59,38 +60,38 @@ var upgrader = websocket.Upgrader{
 	WriteBufferSize: 1024,
 }
 
-// func home(w http.ResponseWriter, r *http.Request) {
-// 	fmt.Fprintf(w, "Chats service - Home page")
-// }
-
 func home(w http.ResponseWriter, r *http.Request) {
-	log.Info("Getting request")
-
-	conn, err := upgrader.Upgrade(w, r, nil)
-	if err != nil {
-		http.Error(w, "Could not open websocket connection", http.StatusBadRequest)
-		return
-	}
-	defer conn.Close()
-
-	log.Info("Upgraded")
-
-	for {
-		messageType, message, err := conn.ReadMessage()
-		if err != nil {
-			log.Error("Error reading message:", err)
-			return
-		}
-
-		log.Info("Received message: ", message)
-
-		err = conn.WriteMessage(messageType, message)
-		if err != nil {
-			log.Error("Error echoing message:", err)
-			return
-		}
-	}
+	fmt.Fprintf(w, "Chats service - Home page")
 }
+
+// func home(w http.ResponseWriter, r *http.Request) {
+// 	log.Info("Getting request")
+
+// 	conn, err := upgrader.Upgrade(w, r, nil)
+// 	if err != nil {
+// 		http.Error(w, "Could not open websocket connection", http.StatusBadRequest)
+// 		return
+// 	}
+// 	defer conn.Close()
+
+// 	log.Info("Upgraded")
+
+// 	for {
+// 		messageType, message, err := conn.ReadMessage()
+// 		if err != nil {
+// 			log.Error("Error reading message:", err)
+// 			return
+// 		}
+
+// 		log.Info("Received message: ", message)
+
+// 		err = conn.WriteMessage(messageType, message)
+// 		if err != nil {
+// 			log.Error("Error echoing message:", err)
+// 			return
+// 		}
+// 	}
+// }
 
 func main() {
 	logFile := initLogger()
