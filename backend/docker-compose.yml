@@ -1,9 +1,6 @@
 version: '3'
 name: offline_project
 
-volumes:
-  keycloak_postgres_volume:
-
 networks:
   gateway_network:
     driver: bridge
@@ -28,5 +25,3 @@ services:
       dockerfile: service_chats/Dockerfile
     networks:
       - gateway_network
-    ports:
-      - "80:80"

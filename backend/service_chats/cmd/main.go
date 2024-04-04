@@ -7,7 +7,7 @@ import (
 )
 
 func homePage(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Chats service - Home Page")
+	fmt.Fprintf(w, "Chats service - Home Page1")
 }
 
 func wsEndpoint(w http.ResponseWriter, r *http.Request) {
