@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/components/button.dart';
 
 import 'package:frontend/components/text_field.dart';
 
@@ -50,12 +51,50 @@ class _LoginPageState extends State<LoginPage>
               ),
               const Text("Welcome"),
               const SizedBox(
-                height: 50,
+                height: 25,
               ),
               MyTextField(
                   controller: emailTextController,
                   hintText: 'Email',
-                  obscureText: false)
+                  obscureText: false),
+              const SizedBox(
+                height: 10,
+              ),
+              MyTextField(
+                  controller: passwordTextController,
+                  hintText: 'Password',
+                  obscureText: true),
+              const SizedBox(
+                height: 10,
+              ),
+              MyButton(
+                onTap: () {},
+                text: 'Sign In',
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Not a member?",
+                    style: TextStyle(
+                      color: Colors.grey[700],
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    "Register now",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         )),
