@@ -38,6 +38,7 @@ class _LoginPageState extends State<LoginPage>
             child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(
                 height: 50,
@@ -49,7 +50,12 @@ class _LoginPageState extends State<LoginPage>
               const SizedBox(
                 height: 50,
               ),
-              const Text("Welcome"),
+              Text(
+                "Welcome",
+                style: TextStyle(
+                  color: Colors.grey[700],
+                ),
+              ),
               const SizedBox(
                 height: 25,
               ),
@@ -86,11 +92,14 @@ class _LoginPageState extends State<LoginPage>
                   const SizedBox(
                     width: 10,
                   ),
-                  const Text(
-                    "Register now",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue,
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Text(
+                      "Register now",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue,
+                      ),
                     ),
                   ),
                 ],
