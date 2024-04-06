@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/common/constants.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   final PageController pageController_;
@@ -21,14 +22,14 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       backgroundColor: Colors.black,
       icon: Icon(
         Icons.home_filled,
-        size: 35,
+        size: CustomUiConstants.kIconSize_,
       ),
       label: '',
     ),
     BottomNavigationBarItem(
       icon: Icon(
         Icons.person_outline,
-        size: 35,
+        size: CustomUiConstants.kIconSize_,
       ),
       label: '',
     ),
