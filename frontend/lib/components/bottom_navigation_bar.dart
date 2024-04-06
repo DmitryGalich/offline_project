@@ -20,20 +20,18 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       onTap: (index) {
-        selectedIndex_ = index;
-
-        widget.pageController_.animateToPage(
-          index,
-          duration: const Duration(milliseconds: 100),
-          curve: Curves.ease,
-        );
+        setState(() {
+          selectedIndex_ = index;
+          widget.pageController_.animateToPage(
+            index,
+            duration: const Duration(milliseconds: 100),
+            curve: Curves.ease,
+          );
+        });
       },
       showSelectedLabels: false,
       showUnselectedLabels: false,
       currentIndex: selectedIndex_,
-      selectedIconTheme:
-          const IconThemeData(color: Colors.blue), // Highlighted icon
-
       items: const [
         BottomNavigationBarItem(
           backgroundColor: Colors.black,
