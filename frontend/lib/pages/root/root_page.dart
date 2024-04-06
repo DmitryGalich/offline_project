@@ -20,8 +20,8 @@ class RootPage extends StatelessWidget {
           ProfilePage(),
         ],
       ),
-      bottomNavigationBar: BottomNavBarCustom(
-        pageController: pageController_,
+      bottomNavigationBar: CustomBottomNavigationBar(
+        pageController_: pageController_,
       ),
     );
   }
