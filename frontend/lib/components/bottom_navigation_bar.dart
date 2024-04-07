@@ -28,23 +28,12 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     ),
     BottomNavigationBarItem(
       icon: Icon(
-        Icons.person_outline,
+        Icons.person,
         size: CustomUiConstants.kIconSize_,
       ),
       label: '',
     ),
   ];
-
-  void processTap(int index) {
-    setState(() {
-      selectedIndex_ = index;
-      widget.pageController_.animateToPage(
-        index,
-        duration: const Duration(milliseconds: 100),
-        curve: Curves.ease,
-      );
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,5 +44,16 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       currentIndex: selectedIndex_,
       items: icons_,
     );
+  }
+
+  void processTap(int index) {
+    setState(() {
+      selectedIndex_ = index;
+      widget.pageController_.animateToPage(
+        index,
+        duration: const Duration(milliseconds: 100),
+        curve: Curves.ease,
+      );
+    });
   }
 }

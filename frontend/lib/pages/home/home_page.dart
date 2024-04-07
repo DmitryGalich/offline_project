@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/components/comments_section/comments_section.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,14 +10,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Home page'),
       ),
-      body: const SafeArea(
-        child: Center(
-          child: Text(
-            'Home page content',
-            style: TextStyle(fontSize: 20),
-          ),
-        ),
-      ),
+      body: const SafeArea(child: CommentsSection()),
     );
   }
 }

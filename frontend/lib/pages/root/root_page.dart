@@ -11,14 +11,16 @@ class RootPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final PageController pageController_ = PageController(initialPage: 0);
 
+    const List<Widget> pages_ = [
+      HomePage(),
+      ProfilePage(),
+    ];
+
     return Scaffold(
       body: PageView(
         controller: pageController_,
         physics: const NeverScrollableScrollPhysics(),
-        children: const [
-          HomePage(),
-          ProfilePage(),
-        ],
+        children: pages_,
       ),
       bottomNavigationBar: CustomBottomNavigationBar(
         pageController_: pageController_,
