@@ -1,0 +1,4 @@
+time="2024-04-09T18:12:23Z" level=info msg="Starting server at (:80)"
+time="2024-04-09T18:12:29Z" level=info msg="Getting request"
+time="2024-04-09T18:12:29Z" level=info msg=Upgraded
+time="2024-04-09T18:12:32Z" level=info msg="Received message: [49 50 51]"

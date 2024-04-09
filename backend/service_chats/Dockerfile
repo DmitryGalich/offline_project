@@ -1,5 +1,8 @@
 FROM golang:1.22
 
+ENV ENTRYPOINT_ADDRESS=
+ENV ENTRYPOINT_PORT=80
+
 WORKDIR /app
 
 COPY service_chats/go.mod ./
