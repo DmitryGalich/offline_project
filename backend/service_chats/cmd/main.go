@@ -112,7 +112,6 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/gorilla/websocket"
-
 	log "github.com/sirupsen/logrus"
 )
 
@@ -127,6 +126,8 @@ func getEntryPointAddress() string {
 }
 
 func processWs(w http.ResponseWriter, r *http.Request) {
+	log.Info("Upgrading connection...")
+
 	conn, err := websockets_manager.Upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		log.Error(err)
@@ -137,11 +138,11 @@ func processWs(w http.ResponseWriter, r *http.Request) {
 	websockets_manager.WebsocketsManager.AddConnection(id, conn)
 
 	defer func() {
+		log.Info("Closing connection " + id)
 		websockets_manager.WebsocketsManager.RemoveConnection(id)
 		conn.Close()
+		log.Info("Connection " + id + "  closed")
 	}()
-
-	log.Info("Client connected:", id)
 
 	for {
 		messageType, message, err := conn.ReadMessage()

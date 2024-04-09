@@ -2,6 +2,7 @@ package websockets_manager
 
 import (
 	"github.com/gorilla/websocket"
+	log "github.com/sirupsen/logrus"
 )
 
 var Upgrader = websocket.Upgrader{
@@ -21,11 +22,19 @@ func newConnectionManager() *ConnectionManager {
 }
 
 func (cm *ConnectionManager) AddConnection(id string, conn *websocket.Conn) {
+	log.Debug("Client connected:", id)
+
 	cm.connections[id] = conn
+
+	log.Debug("Client connected:", id)
 }
 
 func (cm *ConnectionManager) RemoveConnection(id string) {
+	log.Debug("Removing client ", id)
+
 	delete(cm.connections, id)
+
+	log.Debug("Client " + id + " removed")
 }
 
 func (cm *ConnectionManager) GetConnection(id string) *websocket.Conn {
