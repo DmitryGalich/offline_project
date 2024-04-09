@@ -4,16 +4,17 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-var upgrader = websocket.Upgrader{
+var Upgrader = websocket.Upgrader{
 	ReadBufferSize:  1024,
 	WriteBufferSize: 1024,
 }
+var WebsocketsManager = newConnectionManager()
 
 type ConnectionManager struct {
 	connections map[string]*websocket.Conn
 }
 
-func NewConnectionManager() *ConnectionManager {
+func newConnectionManager() *ConnectionManager {
 	return &ConnectionManager{
 		connections: make(map[string]*websocket.Conn),
 	}
