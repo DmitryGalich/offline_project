@@ -144,3 +144,6 @@ go get golang.org/x/crypto
 
 * Microservices security
 <https://cheatsheetseries.owasp.org/cheatsheets/Microservices_Security_Cheat_Sheet.html>
+
+* MESSANGER ARCHITECTURE with TECHNOLOGIES
+<https://www.youtube.com/watch?v=ZYlaiAPfbhw>

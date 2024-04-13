@@ -23,15 +23,15 @@ func getEntryPointAddress() string {
 }
 
 func processWs(w http.ResponseWriter, r *http.Request) {
-	log.Info("Upgrading connection...")
+	id := uuid.New().String()
+
+	log.Info("Upgrading connection " + id + "...")
 
 	conn, err := websockets_manager.Upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		log.Error(err)
 		return
 	}
-
-	id := uuid.New().String()
 	websockets_manager.WebsocketsManager.AddConnection(id, conn)
 
 	defer func() {
@@ -40,6 +40,8 @@ func processWs(w http.ResponseWriter, r *http.Request) {
 		conn.Close()
 		log.Info("Connection " + id + "  closed")
 	}()
+
+	log.Info("Connection " + id + " upgraded")
 
 	for {
 		messageType, message, err := conn.ReadMessage()

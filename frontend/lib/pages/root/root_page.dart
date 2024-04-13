@@ -4,6 +4,10 @@ import 'package:frontend/components/bottom_navigation_bar.dart';
 import 'package:frontend/pages/home/home_page.dart';
 import 'package:frontend/pages/profile/profile_page.dart';
 
+import 'package:frontend/services/web_socket_client.dart';
+
+final webSocketClient = WebSocketClient();
+
 class RootPage extends StatelessWidget {
   const RootPage({super.key});
 
