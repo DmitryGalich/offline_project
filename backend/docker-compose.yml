@@ -17,13 +17,3 @@ services:
           - gateway.localtest.me
     ports:
       - "80:80"
-    depends_on:
-      - service_chats
-
-  service_chats:
-    container_name: service_chats
-    build:
-      context: .
-      dockerfile: service_chats/Dockerfile
-    networks:
-      - gateway_network
