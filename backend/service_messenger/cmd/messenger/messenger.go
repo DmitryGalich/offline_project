@@ -17,8 +17,9 @@ func main() {
 		println(err)
 		return
 	}
-	logger.Info("KEK1")
+	logger.Debug("KEK1")
 	logger.Info("KEK2")
-	logger.Info("KEK3")
-	logger.Info("KEK4")
+	logger.Warning("KEK3")
+	logger.Error("KEK4")
+	logger.Fatal("KEK5")
 }

@@ -1,10 +1,8 @@
 package logger
 
 import (
-	"errors"
 	"os"
 	"path/filepath"
-	"runtime/debug"
 	"time"
 
 	"github.com/rs/zerolog"
@@ -32,21 +30,18 @@ func NewZeroLogger(logFolderPath string, logFileName string) (*ZeroLogger, error
 		return nil, err
 	}
 
-	buildInfo, ok := debug.ReadBuildInfo()
-	if !ok {
-		return nil, errors.New("can't read build info")
-	}
-
 	logger := zerolog.New(zerolog.MultiLevelWriter(zerolog.ConsoleWriter{Out: os.Stderr, TimeFormat: time.RFC3339}, fileHandler)).
 		Level(zerolog.TraceLevel).
 		With().
 		Timestamp().
 		Int("pid", os.Getpid()).
-		Str("go_version", buildInfo.GoVersion).
-		Caller().
 		Logger()
 
 	return &ZeroLogger{logger}, nil
+}
+
+func (l *ZeroLogger) Debug(msg string) {
+	l.logger.Debug().Msg(msg)
 }
 
 func (l *ZeroLogger) Info(msg string) {
@@ -54,13 +49,13 @@ func (l *ZeroLogger) Info(msg string) {
 }
 
 func (l *ZeroLogger) Warning(msg string) {
-	l.logger.Info().Msg(msg)
+	l.logger.Warn().Msg(msg)
 }
 
 func (l *ZeroLogger) Error(msg string) {
-	l.logger.Info().Msg(msg)
+	l.logger.Error().Msg(msg)
 }
 
-func (l *ZeroLogger) Critical(msg string) {
-	l.logger.Info().Msg(msg)
+func (l *ZeroLogger) Fatal(msg string) {
+	l.logger.Fatal().Msg(msg)
 }
