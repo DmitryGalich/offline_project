@@ -18,4 +18,7 @@ func main() {
 		return
 	}
 	logger.Info("KEK1")
+	logger.Info("KEK2")
+	logger.Info("KEK3")
+	logger.Info("KEK4")
 }
