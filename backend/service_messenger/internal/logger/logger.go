@@ -12,12 +12,12 @@ type Logger interface {
 }
 
 func prepareLogFolder(logFolderPath string) error {
-	err := os.MkdirAll(logFolderPath, 0755)
+	err := os.RemoveAll(logFolderPath)
 	if err != nil {
 		return err
 	}
 
-	err = os.RemoveAll(logFolderPath)
+	err = os.MkdirAll(logFolderPath, 0755)
 	if err != nil {
 		return err
 	}

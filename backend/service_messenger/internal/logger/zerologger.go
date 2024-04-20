@@ -3,10 +3,12 @@ package logger
 import (
 	"errors"
 	"os"
+	"path/filepath"
 	"runtime/debug"
 	"time"
 
 	"github.com/rs/zerolog"
+	"gopkg.in/lumberjack.v3"
 )
 
 type ZeroLogger struct {
@@ -32,6 +34,19 @@ func NewZeroLogger(logFolderPath string, logFileName string) (*ZeroLogger, error
 		Str("go_version", buildInfo.GoVersion).
 		Caller().
 		Logger()
+
+	fileHandler, err := lumberjack.New(
+		lumberjack.WithFileName(filepath.Join(logFolderPath, logFileName)),
+		lumberjack.WithMaxBytes(25*lumberjack.MB),
+		lumberjack.WithMaxBackups(3),
+		lumberjack.WithMaxDays(28),
+		lumberjack.WithCompress(),
+	)
+	if err != nil {
+		return nil, err
+	}
+
+	logger = logger.Output(zerolog.ConsoleWriter{Out: fileHandler})
 
 	return &ZeroLogger{logger}, nil
 }
