@@ -17,3 +17,13 @@ services:
           - gateway.localtest.me
     ports:
       - "80:80"
+    depends_on:
+      - service_messenger
+
+  service_messenger:
+    container_name: service_messenger
+    build:
+      context: .
+      dockerfile: service_messenger/Dockerfile
+    networks:
+      - gateway_network
