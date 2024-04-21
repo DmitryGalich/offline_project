@@ -2,6 +2,7 @@ package main
 
 import (
 	"offline_project/backend/service_messenger/internal/logger"
+	"strconv"
 
 	"path/filepath"
 )
@@ -17,9 +18,8 @@ func main() {
 		println(err)
 		return
 	}
-	logger.Debug("KEK1")
-	logger.Info("KEK2")
-	logger.Warning("KEK3")
-	logger.Error("KEK4")
-	logger.Fatal("KEK5")
+
+	for j := 0; j < 1000000; j++ {
+		logger.Info("KEK " + strconv.Itoa(j))
+	}
 }

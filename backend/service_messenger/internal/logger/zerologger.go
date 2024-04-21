@@ -21,7 +21,7 @@ func NewZeroLogger(logFolderPath string, logFileName string) (*ZeroLogger, error
 
 	fileHandler, err := lumberjack.New(
 		lumberjack.WithFileName(filepath.Join(logFolderPath, logFileName)),
-		lumberjack.WithMaxBytes(25*lumberjack.MB),
+		lumberjack.WithMaxBytes(1*lumberjack.MB),
 		lumberjack.WithMaxBackups(3),
 		lumberjack.WithMaxDays(28),
 		lumberjack.WithCompress(),
