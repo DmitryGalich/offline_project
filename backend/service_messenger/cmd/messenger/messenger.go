@@ -2,7 +2,7 @@ package main
 
 import (
 	"offline_project/backend/service_messenger/internal/logger"
-	"strconv"
+	"offline_project/backend/service_messenger/internal/server"
 
 	"path/filepath"
 )
@@ -19,7 +19,13 @@ func main() {
 		return
 	}
 
-	for j := 0; j < 1000000; j++ {
-		logger.Info("KEK " + strconv.Itoa(j))
+	logger.Info("Starting...")
+
+	serverConf := server.NewServerConfig("", "80")
+	server := server.NewBasicServer(logger, serverConf)
+
+	err = server.Start()
+	if err != nil {
+		logger.Error("Can't start server")
 	}
 }
