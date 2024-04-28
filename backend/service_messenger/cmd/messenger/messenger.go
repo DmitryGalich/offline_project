@@ -22,7 +22,7 @@ func main() {
 	logger.Info("Starting...")
 
 	serverConf := server.NewServerConfig("", "80")
-	server := server.NewBasicServer(logger, serverConf)
+	server := server.NewGnetServer(logger, serverConf)
 
 	err = server.Start()
 	if err != nil {
