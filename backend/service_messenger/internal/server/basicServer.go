@@ -15,14 +15,30 @@ func NewBasicServer(logger logger.Logger, config ServerConfig) *BasicServer {
 	return &BasicServer{logger: logger, config: config}
 }
 
-func (s *BasicServer) handleHome(w http.ResponseWriter, req *http.Request) {
+func (s *BasicServer) handleTest(w http.ResponseWriter, req *http.Request) {
+	anwser := "test"
+
 	s.logger.Info("\n" +
 		"req.Host: " + req.Host + "\n" +
 		"req.Method: " + req.Method + "\n" +
 		"req.RemoteAddr: " + req.RemoteAddr + "\n" +
-		"req.RequestURI: " + req.RequestURI + "\n")
+		"req.RequestURI: " + req.RequestURI + "\n" +
+		"answer: " + anwser + "\n")
 
-	fmt.Fprintf(w, "home")
+	fmt.Fprint(w, anwser)
+}
+
+func (s *BasicServer) handleWs(w http.ResponseWriter, req *http.Request) {
+	anwser := "ws"
+
+	s.logger.Info("\n" +
+		"req.Host: " + req.Host + "\n" +
+		"req.Method: " + req.Method + "\n" +
+		"req.RemoteAddr: " + req.RemoteAddr + "\n" +
+		"req.RequestURI: " + req.RequestURI + "\n" +
+		"answer: " + anwser + "\n")
+
+	fmt.Fprint(w, anwser)
 }
 
 func (s *BasicServer) Start() error {
@@ -30,6 +46,8 @@ func (s *BasicServer) Start() error {
 		" port: " + s.config.port,
 	)
 
-	http.HandleFunc("/", s.handleHome)
+	http.HandleFunc("/test/", s.handleTest)
+	http.HandleFunc("/ws/", s.handleWs)
+
 	return http.ListenAndServe(s.config.address+":"+s.config.port, nil)
 }

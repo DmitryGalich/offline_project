@@ -2,7 +2,9 @@ version: '3'
 name: offline_project
 
 networks:
-  gateway_network:
+  frontend_network:
+    driver: bridge
+  backend_network:
     driver: bridge
 
 services:
@@ -12,9 +14,8 @@ services:
     volumes:
       - ./gateway/gateway.conf:/etc/nginx/nginx.conf
     networks:
-      gateway_network:         
-        aliases:
-          - gateway.localtest.me
+      - frontend_network
+      - backend_network
     ports:
       - "80:80"
     depends_on:
@@ -26,4 +27,4 @@ services:
       context: .
       dockerfile: service_messenger/Dockerfile
     networks:
-      - gateway_network
+      - backend_network
