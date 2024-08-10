@@ -1,5 +1,7 @@
 start_all:
 	docker compose up
 
-start_messenger:
-	cd service_messenger && docker run -d service_messenger
+start_dummy:
+	cd dummy; \
+	docker build -o dummy .;\
+	docker run dummy
