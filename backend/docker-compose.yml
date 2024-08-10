@@ -18,13 +18,21 @@ services:
       - backend_network
     ports:
       - "80:80"
-    depends_on:
-      - service_messenger
+    # depends_on:
+    #   - service_messenger
 
-  service_messenger:
-    container_name: service_messenger
+  dummy:
+    container_name: dummy
     build:
-      context: .
-      dockerfile: service_messenger/Dockerfile
+      context: ./dummy
+      dockerfile: Dockerfile
     networks:
       - backend_network
+
+  # service_messenger:
+  #   container_name: service_messenger
+  #   build:
+  #     context: .
+  #     dockerfile: service_messenger/Dockerfile
+  #   networks:
+  #     - backend_network
