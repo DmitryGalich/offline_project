@@ -4,9 +4,14 @@ FROM golang:1.22
 
 EXPOSE 5001
 
-WORKDIR /app
+WORKDIR /service_messenger
+
 COPY . .
-COPY go.mod ./
+
+COPY /service_messenge/go.mod .
+COPY /service_messenge/go.sum .
+
 RUN go mod download
 RUN go build -o main ./cmd/messenger
+
 CMD ["./main"]
