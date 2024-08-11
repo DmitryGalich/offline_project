@@ -16,7 +16,7 @@ func NewBasicServer(logger logger.Logger, config ServerConfig) *BasicServer {
 }
 
 func (s *BasicServer) handleTest(w http.ResponseWriter, req *http.Request) {
-	anwser := "test"
+	anwser := "messenger test"
 
 	s.logger.Info("\n" +
 		"req.Host: " + req.Host + "\n" +
@@ -29,7 +29,20 @@ func (s *BasicServer) handleTest(w http.ResponseWriter, req *http.Request) {
 }
 
 func (s *BasicServer) handleWs(w http.ResponseWriter, req *http.Request) {
-	anwser := "ws"
+	anwser := "messenger ws"
+
+	s.logger.Info("\n" +
+		"req.Host: " + req.Host + "\n" +
+		"req.Method: " + req.Method + "\n" +
+		"req.RemoteAddr: " + req.RemoteAddr + "\n" +
+		"req.RequestURI: " + req.RequestURI + "\n" +
+		"answer: " + anwser + "\n")
+
+	fmt.Fprint(w, anwser)
+}
+
+func (s *BasicServer) handleRoot(w http.ResponseWriter, req *http.Request) {
+	anwser := "messenger root"
 
 	s.logger.Info("\n" +
 		"req.Host: " + req.Host + "\n" +
@@ -46,6 +59,7 @@ func (s *BasicServer) Start() error {
 		" port: " + s.config.port,
 	)
 
+	http.HandleFunc("/", s.handleRoot)
 	http.HandleFunc("/test/", s.handleTest)
 	http.HandleFunc("/ws/", s.handleWs)
 
