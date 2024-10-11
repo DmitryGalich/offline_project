@@ -22,10 +22,10 @@ func main() {
 	logger.Info("Starting...")
 
 	serverConf := server.NewServerConfig("", "5001")
-	server := server.NewBasicServer(logger, serverConf)
+	// server := server.NewBasicServer(logger, serverConf)
 
-	err = server.Start()
-	if err != nil {
-		logger.Error("Can't start server")
-	}
+	// err = server.Start()
+	// if err != nil {
+	// 	logger.Error("Can't start server")
+	// }
 }
